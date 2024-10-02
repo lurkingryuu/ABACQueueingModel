@@ -250,17 +250,17 @@ def efficient_experiment_gen(experiment_no: int = 1):
     effcient_order = [(expcfg['experiment_file'], expcfg['config']) for expcfg in effcient_order]
     return effcient_order
 
-CACHE = {}
+CACHE = []
 
 def cache_experiments():
     for file in ALL_EXPERIMENTS_HISTORY_DIR.glob('*.txt'):
-        CACHE[file.stem] = True
+        CACHE.append(file.stem)
 
 def main():
     for exp in range(1, EXPERIMENTS_PER_CONFIG + 1):
         prev_datagen_config = {}
         for experiment_file, config in efficient_experiment_gen(exp):
-            if CACHE[experiment_file.split('.')[0]]:
+            if experiment_file.split('.')[0] in CACHE:
                 print(f'[Runner] Skipping experiment: {experiment_file.split(".")[0]}')
                 continue
             print(f'[Runner] Running experiment: {experiment_file.split(".")[0]}')
