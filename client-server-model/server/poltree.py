@@ -162,7 +162,7 @@ class NPolTree:
                 new_policy_rules = {
                     rule_name: rule
                     for rule_name, rule in policy_rules.items()
-                    if value in rule.get(attr_type, {}).get(attribute, []) or "*" in rule.get(attr_type, {}).get(attribute, [])
+                    if value in rule.get(attr_type, {}).get(attribute, [])
                 }
             if len(new_policy_rules) == 0: # Skip empty branches
                 continue
@@ -227,17 +227,6 @@ class NPolTree:
     def load_hash(file_path):
         with open(file_path, 'r') as file:
             return (file.read())
-    
-
-# def make_hashable(obj):
-#     """Recursively convert a dictionary into a hashable tuple."""
-#     if isinstance(obj, dict):
-#         return tuple((key, make_hashable(value)) for key, value in sorted(obj.items()))
-#     elif isinstance(obj, list):
-#         return tuple(make_hashable(item) for item in obj)
-#     elif isinstance(obj, set):
-#         return frozenset(make_hashable(item) for item in obj)
-#     return obj
 
 
 def HashPolicy(policy):

@@ -3,7 +3,31 @@ import math
 import graphviz
 from pprint import pprint
 from time import sleep
+from hashlib import sha256
 
+
+import json
+import math
+from hashlib import sha256
+import logging
+from pathlib import Path
+from time import perf_counter_ns
+import time
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+POLTREE_LOG = BASE_DIR / 'logs' / 'poltree.log'
+
+logging.basicConfig(level=logging.INFO, format='[PolTree] %(levelname)s: %(message)s', filename=POLTREE_LOG)
+LOG_FREQ = 10000
+
+def profiler(func):
+    def wrapper(*args, **kwargs):
+        start = perf_counter_ns()
+        result = func(*args, **kwargs)
+        end = perf_counter_ns()
+        logging.debug(f"{func.__name__} took {(end - start) * 1e3} μs")
+        return result
+    return wrapper
 
 class NPolTreeNode:
     def __init__(
@@ -19,26 +43,52 @@ class NPolTreeNode:
     def __repr__(self):
         return f"Node: ({self.attribute}, {self.decision}), IsLeaf: {self.is_leaf}, Branches: {list(self.branches.keys())}"
 
+    def to_dict(self):
+        """Serialize the node into a dictionary."""
+        return {
+            "id": self._id,
+            "attr_type": self.attr_type,
+            "attribute": self.attribute,
+            "branches": {key: branch.to_dict() for key, branch in self.branches.items()},
+            "decision": self.decision,
+            "is_leaf": self.is_leaf,
+        }
+
+    @staticmethod
+    def from_dict(data):
+        """Deserialize a node from a dictionary."""
+        node = NPolTreeNode(
+            attr_type=data["attr_type"],
+            attribute=data["attribute"],
+            decision=data["decision"],
+            is_leaf=data["is_leaf"]
+        )
+        node.branches = {
+            key: NPolTreeNode.from_dict(branch_data)
+            for key, branch_data in data.get("branches", {}).items()
+        }
+        return node
 
 class NPolTree:
-    def __init__(self, policy: str | dict):
+    def __init__(self, policy: str | dict = None):
+        logging.info(f'----------------- Initializing PolTree at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())} -----------------')
         self.update_policy(policy)
 
     def update_policy(self, policy):
+        logging.info(f'----------------- Updating PolTree at {time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())} -----------------')
+        self.policy = {}
         if type(policy) == str:
             self.policy: dict = json.loads(policy)
-        else:
+        elif type(policy) == dict:
             self.policy: dict = policy
-        # pprint(f"Policy: {self.policy}")
         if len(self.policy) == 0:
             self.root = NPolTreeNode(None, None, decision="Deny", is_leaf=True)
             return
         self.stats = self.calculate_stats(self.policy)
-        # pprint(f"Stats: {self.stats}")
         self.attributes = self.gather_attributes()
-        # pprint(f"Attributes: {self.attributes}")
         self.attr_vals = self.gather_attr_vals()
-        # pprint(f"Attribute values: {self.attr_vals}")
+        self.node_count = 0
+        self.leaf_count = 0
         self.root = self.build_tree(self.policy, self.attributes)
 
     def gather_attributes(self):
@@ -54,7 +104,6 @@ class NPolTree:
             for attr, values in attrs.items():
                 if attr_type not in attr_vals:
                     attr_vals[attr_type] = {}
-                # Exclude wildcard "*" from attribute values
                 attr_vals[attr_type][attr] = values.keys() 
         return attr_vals
 
@@ -114,19 +163,25 @@ class NPolTree:
                 selected_attribute = (attr_type, attribute)
         return selected_attribute
 
-    def build_tree(self, policy_rules, attributes):
-        # print(f"Number of rules: {len(policy_rules)}")
-        # print(f"Number of attributes: {len(attributes)}")
+    def build_tree(self, policy_rules, attributes, depth=0):
+        self.node_count += 1
+        if self.node_count % LOG_FREQ == 0:
+            logging.info(f"Building tree, node count: {self.node_count}, leaf count: {self.leaf_count}")
         if not policy_rules:
+            self.leaf_count += 1
             return NPolTreeNode(None, None, decision="Deny", is_leaf=True)
         if len(attributes) == 0:
+            self.leaf_count += 1
             return NPolTreeNode(None, None, decision="Allow", is_leaf=True)
         attr_type, attribute = self.select_attribute(attributes, policy_rules)
         if attr_type is None:
+            self.leaf_count += 1
             return NPolTreeNode(None, None, decision="Allow", is_leaf=True)
-        # print(f"Selected attribute: {attr_type}, {attribute}")
         node = NPolTreeNode(attr_type, attribute)
+        logging.debug(f"Depth: {depth}, Attribute: {attribute}, Attribute type: {attr_type}")
+        branch_cnt = 0
         for value in self.attr_vals[attr_type][attribute]:
+            branch_cnt += 1
             new_attributes = [
                 attr for attr in attributes if attr != (attr_type, attribute)
             ]
@@ -140,31 +195,17 @@ class NPolTree:
                 new_policy_rules = {
                     rule_name: rule
                     for rule_name, rule in policy_rules.items()
-                    if value in rule.get(attr_type, {}).get(attribute, []) or "*" in rule.get(attr_type, {}).get(attribute, [])
+                    # if value in rule.get(attr_type, {}).get(attribute, []) or "*" in rule.get(attr_type, {}).get(attribute, [])
+                    if value in rule.get(attr_type, {}).get(attribute, [])
                 }
-            # print(f"Branched on: {attr_type}, {attribute}, {value}")
-            # print(f"Number of new rules: {len(new_policy_rules)}")
             if len(new_policy_rules) == 0: # Skip empty branches
                 continue
-            node.branches[value] = self.build_tree(new_policy_rules, new_attributes)
+            if len(attributes) == 0:
+                self.leaf_count += 1
+                node.branches[value] = NPolTreeNode(None, None, decision="Allow", is_leaf=True)
+                continue
+            node.branches[value] = self.build_tree(new_policy_rules, new_attributes , depth + 1)
         return node
-
-    def _display_tree(self, node, graph: graphviz.Digraph, parent=None, value=None):
-        if node.is_leaf:
-            graph.node(node._id, label=node.decision)
-            if parent:
-                graph.edge(parent._id, node._id, label=value)
-        else:
-            graph.node(node._id, label=node.attribute)
-            if parent:
-                graph.edge(parent._id, node._id, label=value)
-            for value, branch in node.branches.items():
-                self._display_tree(branch, graph, node, value)
-
-    def display_tree(self):
-        graph = graphviz.Digraph()
-        self._display_tree(self.root, graph)
-        graph.render("policy_tree", view=True)
         
     def _print_tree(self, node, depth=0):
         if node.is_leaf:
@@ -179,7 +220,6 @@ class NPolTree:
         self._print_tree(self.root)
     
     def _resolve(self, node, request, depth=0):
-        # print(f"{'    ' * depth}{node}")
         if node.is_leaf:
             return (node.decision == "Allow")
         attr_type = node.attr_type
@@ -188,25 +228,108 @@ class NPolTree:
         
         for value in (request.get(attr_type, {}).get(attribute, []) if attr_type != "op" else [request.get(attr_type, None)]):
             if value in node.branches:
-                # print(f"Value: {value:>8}", end=" ")
                 access |= self._resolve(node.branches[value], request, depth + 1)
                 if access:
                     break
         if len(value) and "*" not in value:
             if "*" in node.branches:
-                # print(f"Value: {'*':>8}", end=" ")
                 access |= self._resolve(node.branches["*"], request, depth + 1)
         return access
     
     def resolve(self, request):
-        # print(f"Request: {request}")
         return "Allow" if self._resolve(self.root, request) else "Deny"
     
     def insert_rule(self, rule_name, rule):
-        print(f"Inserting rule: {rule_name}: {rule}")
-        print(f"Prev policy size: {len(self.policy)}")
+        # print(f"Inserting rule: {rule_name}: {rule}")
+        # print(f"Prev policy size: {len(self.policy)}")
         self.policy[rule_name] = rule
         self.update_policy(self.policy)
+    
+    @profiler
+    def store_tree(self, file_path):
+        """Store the tree structure to a JSON file."""
+        with open(file_path, 'w') as file:
+            json.dump(self.root.to_dict(), file)
+    
+    @profiler
+    def load_tree(self, file_path):
+        """Load the tree structure from a JSON file."""
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+        self.root = NPolTreeNode.from_dict(data)
+    
+    @staticmethod
+    @profiler
+    def store_hash(file_path, policy: dict):
+        with open(file_path, 'w') as file:
+            file.write(HashPolicy(policy))
+
+    @staticmethod
+    @profiler
+    def load_hash(file_path):
+        with open(file_path, 'r') as file:
+            return (file.read())
+    
+
+# def make_hashable(obj):
+#     """Recursively convert a dictionary into a hashable tuple."""
+#     if isinstance(obj, dict):
+#         return tuple((key, make_hashable(value)) for key, value in sorted(obj.items()))
+#     elif isinstance(obj, list):
+#         return tuple(make_hashable(item) for item in obj)
+#     elif isinstance(obj, set):
+#         return frozenset(make_hashable(item) for item in obj)
+#     return obj
+
+
+@profiler
+def HashPolicy(policy):
+    """Hash a policy dictionary."""
+    return sha256(json.dumps(policy).encode()).hexdigest()
+
+def resolveAccessRequestfromPolicy(access_request, policy, type_=1):
+    """ Resolve access request from policy"""
+    # result = 0 implies access not granted, result = 1 implies access granted
+    result = 0
+    policy_ = policy
+
+    # Process the result
+    for i in range(len(policy_)):
+        key = "rule_" + str(i + 1)
+        rule = policy_.get(key)
+        sub_attr_check = 1
+        for attr in rule["sub"]:
+            if rule["sub"][attr] == ['*']:
+                continue
+            curr_sub_attr_check = 0
+            for value in access_request["sub"][attr]:
+                if value in rule["sub"][attr]:
+                    curr_sub_attr_check = 1
+                    break
+            if curr_sub_attr_check == 0:
+                sub_attr_check = 0
+                break
+        if sub_attr_check == 0:
+            continue
+        obj_attr_check = 1
+        for attr in rule["obj"]:
+            if rule["obj"][attr] == ['*']:
+                continue
+            curr_obj_attr_check = 0
+
+            for value in access_request["obj"][attr]:
+                if value in rule["obj"][attr]:
+                    curr_obj_attr_check = 1
+                    break
+            if curr_obj_attr_check == 0:
+                obj_attr_check = 0
+                break
+        if obj_attr_check == 0:
+            continue
+        else:
+            result = 1
+            break
+    return result
 
 
 # Example usage

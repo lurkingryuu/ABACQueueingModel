@@ -212,7 +212,6 @@ def generateStollerInput():
     file_ptr.close()
 
 
-# TODO: Implement PolTree
 def resolveAccessRequestfromPolicy(access_request, policy, type_=1):
     """ Resolve access request from policy"""
     # result = 0 implies access not granted, result = 1 implies access granted
@@ -721,11 +720,39 @@ def main():
     logging.info(f"Auxiliary List Update Rate: {AL_UPDATE_RATE}")
     logging.info(f"Policy Resolution: {CURRENT_POLICY_RESOLUTION.name}")
     
-    logging.info("Building the policy tree...")
+    
     global PolTree
-    build_time = time.perf_counter()
-    PolTree = NPolTree(policy)
-    logging.info(f"Policy tree built in {time.perf_counter() - build_time} seconds")
+    if CURRENT_POLICY_RESOLUTION == PolicyResolution.POLICY_TREE:
+        logging.info("Building the policy tree...")
+        build_time = time.perf_counter()
+        
+        # policy_hash = None
+        # if (DATABASE_DIR / 'policy' / 'policy_hash.txt').exists():
+        #     policy_hash = NPolTree.load_hash(DATABASE_DIR / 'policy' / 'policy_hash.txt')
+        # PolTree = None
+        # if policy_hash != HashPolicy(policy):
+        #     logging.info("Building the policy tree...")
+        #     build_time = time.perf_counter()
+        #     PolTree = NPolTree(policy)
+        #     logging.info(f"Policy tree built in {time.perf_counter() - build_time} seconds")
+        #     logging.info("Storing the policy tree...")
+        #     load_time = time.perf_counter()
+        #     PolTree.store_tree(DATABASE_DIR / 'policy' / 'policy_tree.json')
+        #     logging.info(f"Policy tree stored in {time.perf_counter() - load_time} seconds")
+        #     logging.info(f"Storing the policy hash...")
+        #     load_time = time.perf_counter()
+        #     NPolTree.store_hash(DATABASE_DIR / 'policy' / 'policy_hash.txt', policy)
+        #     logging.info(f"Policy hash stored in {time.perf_counter() - load_time} seconds")
+        # else:
+        #     logging.info("Loading the policy tree...")
+        #     build_time = time.perf_counter()
+        #     PolTree = NPolTree()
+        #     PolTree.load_tree(DATABASE_DIR / 'policy' / 'policy_tree.json')
+        #     logging.info(f"Policy tree loaded in {time.perf_counter() - build_time} seconds")
+
+        PolTree = NPolTree(policy)
+        logging.info(f"Policy tree built in {time.perf_counter() - build_time} seconds")
+    
 
     SERVER.listen(5)
     logging.info("Waiting for a connection...")
@@ -776,10 +803,15 @@ if __name__ == "__main__":
     
     args = argparser.parse_args()
     
+    # Log current arguments
+    logging.info(f'Arguments: {args}')
+    
     if args.al_update_rate:
         AL_UPDATE_RATE = args.al_update_rate
     if args.vacation_model:
         CURRENT_VACATION_MODEL = VacationModel(args.vacation_model)
+    if args.policy_resolution:
+        CURRENT_POLICY_RESOLUTION = PolicyResolution(args.policy_resolution)
     if args.max_aux_list_len:
         MAX_AUX_LIST_LEN_PER_VACATION = args.max_aux_list_len
     if args.max_access_requests:
@@ -792,6 +824,8 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
+        logging.info(f"No. of vacations: {NO_OF_VACATIONS}")
+        logging.info('Keyboard interrupt caught')
         logging.info('Closing the server...')
         SERVER.close()
         logging.info('------------- Server Closed ! -------------')

@@ -1,0 +1,299 @@
+--- Before ---
+[Runner] Running experiment: c1_al_update_rate_v1_1
+[Runner] Generating data for: c1_al_update_rate_v1_1
+[Runner] Done running experiment: c1_al_update_rate_v1_1
+[Runner] Running experiment: c1_al_update_rate_v2_1
+[Runner] Done running experiment: c1_al_update_rate_v2_1
+[Runner] Running experiment: c1_al_update_rate_v3_1
+[Runner] Done running experiment: c1_al_update_rate_v3_1
+[Runner] Running experiment: c1_al_update_rate_v4_1
+[Runner] Done running experiment: c1_al_update_rate_v4_1
+[Runner] Running experiment: c2_al_update_rate_v1_1
+[Runner] Done running experiment: c2_al_update_rate_v1_1
+[Runner] Running experiment: c2_al_update_rate_v2_1
+[Runner] Done running experiment: c2_al_update_rate_v2_1
+[Runner] Running experiment: c2_al_update_rate_v3_1
+[Runner] Done running experiment: c2_al_update_rate_v3_1
+[Runner] Running experiment: c2_al_update_rate_v4_1
+[Runner] Done running experiment: c2_al_update_rate_v4_1
+[Runner] Running experiment: c3_al_update_rate_v1_1
+[Runner] Done running experiment: c3_al_update_rate_v1_1
+[Runner] Running experiment: c3_al_update_rate_v2_1
+[Runner] Done running experiment: c3_al_update_rate_v2_1
+[Runner] Running experiment: c3_al_update_rate_v3_1
+[Runner] Done running experiment: c3_al_update_rate_v3_1
+[Runner] Running experiment: c3_al_update_rate_v4_1
+[Runner] Done running experiment: c3_al_update_rate_v4_1
+[Runner] Running experiment: c4_al_update_rate_v1_1
+[Runner] Done running experiment: c4_al_update_rate_v1_1
+[Runner] Running experiment: c4_al_update_rate_v2_1
+[Runner] Done running experiment: c4_al_update_rate_v2_1
+[Runner] Running experiment: c4_al_update_rate_v3_1
+[Runner] Done running experiment: c4_al_update_rate_v3_1
+[Runner] Running experiment: c4_al_update_rate_v4_1
+[Runner] Done running experiment: c4_al_update_rate_v4_1
+[Runner] Running experiment: c1_arrival_rate_v1_1
+[Runner] Done running experiment: c1_arrival_rate_v1_1
+[Runner] Running experiment: c1_arrival_rate_v2_1
+[Runner] Done running experiment: c1_arrival_rate_v2_1
+[Runner] Running experiment: c1_arrival_rate_v3_1
+[Runner] Done running experiment: c1_arrival_rate_v3_1
+[Runner] Running experiment: c1_arrival_rate_v4_1
+[Runner] Done running experiment: c1_arrival_rate_v4_1
+[Runner] Running experiment: c2_arrival_rate_v1_1
+[Runner] Done running experiment: c2_arrival_rate_v1_1
+[Runner] Running experiment: c2_arrival_rate_v2_1
+[Runner] Done running experiment: c2_arrival_rate_v2_1
+[Runner] Running experiment: c2_arrival_rate_v3_1
+[Runner] Done running experiment: c2_arrival_rate_v3_1
+[Runner] Running experiment: c2_arrival_rate_v4_1
+[Runner] Done running experiment: c2_arrival_rate_v4_1
+[Runner] Running experiment: c3_arrival_rate_v1_1
+[Runner] Done running experiment: c3_arrival_rate_v1_1
+[Runner] Running experiment: c3_arrival_rate_v2_1
+[Runner] Done running experiment: c3_arrival_rate_v2_1
+[Runner] Running experiment: c3_arrival_rate_v3_1
+[Runner] Done running experiment: c3_arrival_rate_v3_1
+[Runner] Running experiment: c3_arrival_rate_v4_1
+[Runner] Done running experiment: c3_arrival_rate_v4_1
+[Runner] Running experiment: c4_arrival_rate_v1_1
+[Runner] Done running experiment: c4_arrival_rate_v1_1
+[Runner] Running experiment: c4_arrival_rate_v2_1
+[Runner] Done running experiment: c4_arrival_rate_v2_1
+[Runner] Running experiment: c4_arrival_rate_v3_1
+[Runner] Done running experiment: c4_arrival_rate_v3_1
+[Runner] Running experiment: c4_arrival_rate_v4_1
+[Runner] Done running experiment: c4_arrival_rate_v4_1
+[Runner] Running experiment: c1_attributes_v1_1
+[Runner] Generating data for: c1_attributes_v1_1
+[Runner] Done running experiment: c1_attributes_v1_1
+[Runner] Running experiment: c1_attributes_v2_1
+[Runner] Generating data for: c1_attributes_v2_1
+[Runner] Done running experiment: c1_attributes_v2_1
+[Runner] Running experiment: c1_attributes_v3_1
+[Runner] Generating data for: c1_attributes_v3_1
+[Runner] Done running experiment: c1_attributes_v3_1
+[Runner] Running experiment: c1_attributes_v4_1
+[Runner] Generating data for: c1_attributes_v4_1
+[Runner] Done running experiment: c1_attributes_v4_1
+[Runner] Running experiment: c2_attributes_v1_1
+[Runner] Generating data for: c2_attributes_v1_1
+[Runner] Done running experiment: c2_attributes_v1_1
+[Runner] Running experiment: c2_attributes_v2_1
+[Runner] Generating data for: c2_attributes_v2_1
+[Runner] Done running experiment: c2_attributes_v2_1
+[Runner] Running experiment: c2_attributes_v3_1
+[Runner] Generating data for: c2_attributes_v3_1
+[Runner] Done running experiment: c2_attributes_v3_1
+[Runner] Running experiment: c2_attributes_v4_1
+[Runner] Generating data for: c2_attributes_v4_1
+[Runner] Done running experiment: c2_attributes_v4_1
+[Runner] Running experiment: c3_attributes_v1_1
+[Runner] Generating data for: c3_attributes_v1_1
+[Runner] Done running experiment: c3_attributes_v1_1
+[Runner] Running experiment: c3_attributes_v2_1
+[Runner] Generating data for: c3_attributes_v2_1
+[Runner] Done running experiment: c3_attributes_v2_1
+[Runner] Running experiment: c3_attributes_v3_1
+[Runner] Generating data for: c3_attributes_v3_1
+[Runner] Done running experiment: c3_attributes_v3_1
+[Runner] Running experiment: c3_attributes_v4_1
+[Runner] Generating data for: c3_attributes_v4_1
+[Runner] Done running experiment: c3_attributes_v4_1
+[Runner] Running experiment: c4_attributes_v1_1
+[Runner] Generating data for: c4_attributes_v1_1
+[Runner] Done running experiment: c4_attributes_v1_1
+[Runner] Running experiment: c4_attributes_v2_1
+[Runner] Generating data for: c4_attributes_v2_1
+[Runner] Done running experiment: c4_attributes_v2_1
+[Runner] Running experiment: c4_attributes_v3_1
+[Runner] Generating data for: c4_attributes_v3_1
+[Runner] Done running experiment: c4_attributes_v3_1
+[Runner] Running experiment: c4_attributes_v4_1
+[Runner] Generating data for: c4_attributes_v4_1
+[Runner] Done running experiment: c4_attributes_v4_1
+[Runner] Running experiment: c1_policy_size_v1_1
+[Runner] Generating data for: c1_policy_size_v1_1
+[Runner] Done running experiment: c1_policy_size_v1_1
+[Runner] Running experiment: c1_policy_size_v2_1
+[Runner] Generating data for: c1_policy_size_v2_1
+[Runner] Done running experiment: c1_policy_size_v2_1
+[Runner] Running experiment: c1_policy_size_v3_1
+[Runner] Generating data for: c1_policy_size_v3_1
+[Runner] Done running experiment: c1_policy_size_v3_1
+[Runner] Running experiment: c1_policy_size_v4_1
+[Runner] Generating data for: c1_policy_size_v4_1
+[Runner] Done running experiment: c1_policy_size_v4_1
+[Runner] Running experiment: c2_policy_size_v1_1
+[Runner] Generating data for: c2_policy_size_v1_1
+[Runner] Done running experiment: c2_policy_size_v1_1
+[Runner] Running experiment: c2_policy_size_v2_1
+[Runner] Generating data for: c2_policy_size_v2_1
+[Runner] Done running experiment: c2_policy_size_v2_1
+[Runner] Running experiment: c2_policy_size_v3_1
+[Runner] Generating data for: c2_policy_size_v3_1
+[Runner] Done running experiment: c2_policy_size_v3_1
+[Runner] Running experiment: c2_policy_size_v4_1
+[Runner] Generating data for: c2_policy_size_v4_1
+[Runner] Done running experiment: c2_policy_size_v4_1
+[Runner] Running experiment: c3_policy_size_v1_1
+[Runner] Generating data for: c3_policy_size_v1_1
+[Runner] Done running experiment: c3_policy_size_v1_1
+[Runner] Running experiment: c3_policy_size_v2_1
+[Runner] Generating data for: c3_policy_size_v2_1
+[Runner] Done running experiment: c3_policy_size_v2_1
+[Runner] Running experiment: c3_policy_size_v3_1
+[Runner] Generating data for: c3_policy_size_v3_1
+[Runner] Done running experiment: c3_policy_size_v3_1
+[Runner] Running experiment: c3_policy_size_v4_1
+[Runner] Generating data for: c3_policy_size_v4_1
+[Runner] Done running experiment: c3_policy_size_v4_1
+[Runner] Running experiment: c4_policy_size_v1_1
+[Runner] Generating data for: c4_policy_size_v1_1
+[Runner] Done running experiment: c4_policy_size_v1_1
+[Runner] Running experiment: c4_policy_size_v2_1
+[Runner] Generating data for: c4_policy_size_v2_1
+[Runner] Done running experiment: c4_policy_size_v2_1
+[Runner] Running experiment: c4_policy_size_v3_1
+[Runner] Generating data for: c4_policy_size_v3_1
+[Runner] Done running experiment: c4_policy_size_v3_1
+[Runner] Running experiment: c4_policy_size_v4_1
+[Runner] Generating data for: c4_policy_size_v4_1
+[Runner] Done running experiment: c4_policy_size_v4_1
+[Runner] Done running all experiments
+
+--- After ---
+[Runner] Running experiment: c1_al_update_rate_v1_1
+[Runner] Generating data for: c1_al_update_rate_v1_1
+[Runner] Done running experiment: c1_al_update_rate_v1_1
+[Runner] Running experiment: c1_al_update_rate_v2_1
+[Runner] Done running experiment: c1_al_update_rate_v2_1
+[Runner] Running experiment: c1_al_update_rate_v3_1
+[Runner] Done running experiment: c1_al_update_rate_v3_1
+[Runner] Running experiment: c1_al_update_rate_v4_1
+[Runner] Done running experiment: c1_al_update_rate_v4_1
+[Runner] Running experiment: c2_al_update_rate_v1_1
+[Runner] Done running experiment: c2_al_update_rate_v1_1
+[Runner] Running experiment: c2_al_update_rate_v2_1
+[Runner] Done running experiment: c2_al_update_rate_v2_1
+[Runner] Running experiment: c2_al_update_rate_v3_1
+[Runner] Done running experiment: c2_al_update_rate_v3_1
+[Runner] Running experiment: c2_al_update_rate_v4_1
+[Runner] Done running experiment: c2_al_update_rate_v4_1
+[Runner] Running experiment: c3_al_update_rate_v1_1
+[Runner] Done running experiment: c3_al_update_rate_v1_1
+[Runner] Running experiment: c3_al_update_rate_v2_1
+[Runner] Done running experiment: c3_al_update_rate_v2_1
+[Runner] Running experiment: c3_al_update_rate_v3_1
+[Runner] Done running experiment: c3_al_update_rate_v3_1
+[Runner] Running experiment: c3_al_update_rate_v4_1
+[Runner] Done running experiment: c3_al_update_rate_v4_1
+[Runner] Running experiment: c4_al_update_rate_v1_1
+[Runner] Done running experiment: c4_al_update_rate_v1_1
+[Runner] Running experiment: c4_al_update_rate_v2_1
+[Runner] Done running experiment: c4_al_update_rate_v2_1
+[Runner] Running experiment: c4_al_update_rate_v3_1
+[Runner] Done running experiment: c4_al_update_rate_v3_1
+[Runner] Running experiment: c4_al_update_rate_v4_1
+[Runner] Done running experiment: c4_al_update_rate_v4_1
+[Runner] Running experiment: c1_arrival_rate_v1_1
+[Runner] Done running experiment: c1_arrival_rate_v1_1
+[Runner] Running experiment: c1_arrival_rate_v2_1
+[Runner] Done running experiment: c1_arrival_rate_v2_1
+[Runner] Running experiment: c1_arrival_rate_v3_1
+[Runner] Done running experiment: c1_arrival_rate_v3_1
+[Runner] Running experiment: c1_arrival_rate_v4_1
+[Runner] Done running experiment: c1_arrival_rate_v4_1
+[Runner] Running experiment: c2_arrival_rate_v1_1
+[Runner] Done running experiment: c2_arrival_rate_v1_1
+[Runner] Running experiment: c2_arrival_rate_v2_1
+[Runner] Done running experiment: c2_arrival_rate_v2_1
+[Runner] Running experiment: c2_arrival_rate_v3_1
+[Runner] Done running experiment: c2_arrival_rate_v3_1
+[Runner] Running experiment: c2_arrival_rate_v4_1
+[Runner] Done running experiment: c2_arrival_rate_v4_1
+[Runner] Running experiment: c3_arrival_rate_v1_1
+[Runner] Done running experiment: c3_arrival_rate_v1_1
+[Runner] Running experiment: c3_arrival_rate_v2_1
+[Runner] Done running experiment: c3_arrival_rate_v2_1
+[Runner] Running experiment: c3_arrival_rate_v3_1
+[Runner] Done running experiment: c3_arrival_rate_v3_1
+[Runner] Running experiment: c3_arrival_rate_v4_1
+[Runner] Done running experiment: c3_arrival_rate_v4_1
+[Runner] Running experiment: c4_arrival_rate_v1_1
+[Runner] Done running experiment: c4_arrival_rate_v1_1
+[Runner] Running experiment: c4_arrival_rate_v2_1
+[Runner] Done running experiment: c4_arrival_rate_v2_1
+[Runner] Running experiment: c4_arrival_rate_v3_1
+[Runner] Done running experiment: c4_arrival_rate_v3_1
+[Runner] Running experiment: c4_arrival_rate_v4_1
+[Runner] Done running experiment: c4_arrival_rate_v4_1
+[Runner] Running experiment: c1_attributes_v2_1
+[Runner] Generating data for: c1_attributes_v2_1
+[Runner] Done running experiment: c1_attributes_v2_1
+[Runner] Running experiment: c2_attributes_v2_1
+[Runner] Done running experiment: c2_attributes_v2_1
+[Runner] Running experiment: c3_attributes_v2_1
+[Runner] Done running experiment: c3_attributes_v2_1
+[Runner] Running experiment: c4_attributes_v2_1
+[Runner] Done running experiment: c4_attributes_v2_1
+[Runner] Running experiment: c1_policy_size_v4_1
+[Runner] Generating data for: c1_policy_size_v4_1
+[Runner] Done running experiment: c1_policy_size_v4_1
+[Runner] Running experiment: c2_policy_size_v4_1
+[Runner] Done running experiment: c2_policy_size_v4_1
+[Runner] Running experiment: c3_policy_size_v4_1
+[Runner] Done running experiment: c3_policy_size_v4_1
+[Runner] Running experiment: c4_policy_size_v4_1
+[Runner] Done running experiment: c4_policy_size_v4_1
+[Runner] Running experiment: c1_attributes_v1_1
+[Runner] Generating data for: c1_attributes_v1_1
+[Runner] Done running experiment: c1_attributes_v1_1
+[Runner] Running experiment: c2_attributes_v1_1
+[Runner] Done running experiment: c2_attributes_v1_1
+[Runner] Running experiment: c3_attributes_v1_1
+[Runner] Done running experiment: c3_attributes_v1_1
+[Runner] Running experiment: c4_attributes_v1_1
+[Runner] Done running experiment: c4_attributes_v1_1
+[Runner] Running experiment: c1_attributes_v3_1
+[Runner] Done running experiment: c1_attributes_v3_1
+[Runner] Running experiment: c2_attributes_v3_1
+[Runner] Done running experiment: c2_attributes_v3_1
+[Runner] Running experiment: c3_attributes_v3_1
+[Runner] Done running experiment: c3_attributes_v3_1
+[Runner] Running experiment: c4_attributes_v3_1
+[Runner] Done running experiment: c4_attributes_v3_1
+[Runner] Running experiment: c1_attributes_v4_1
+[Runner] Done running experiment: c1_attributes_v4_1
+[Runner] Running experiment: c2_attributes_v4_1
+[Runner] Done running experiment: c2_attributes_v4_1
+[Runner] Running experiment: c3_attributes_v4_1
+[Runner] Done running experiment: c3_attributes_v4_1
+[Runner] Running experiment: c4_attributes_v4_1
+[Runner] Done running experiment: c4_attributes_v4_1
+[Runner] Running experiment: c1_policy_size_v1_1
+[Runner] Generating data for: c1_policy_size_v1_1
+[Runner] Done running experiment: c1_policy_size_v1_1
+[Runner] Running experiment: c2_policy_size_v1_1
+[Runner] Done running experiment: c2_policy_size_v1_1
+[Runner] Running experiment: c3_policy_size_v1_1
+[Runner] Done running experiment: c3_policy_size_v1_1
+[Runner] Running experiment: c4_policy_size_v1_1
+[Runner] Done running experiment: c4_policy_size_v1_1
+[Runner] Running experiment: c1_policy_size_v2_1
+[Runner] Done running experiment: c1_policy_size_v2_1
+[Runner] Running experiment: c2_policy_size_v2_1
+[Runner] Done running experiment: c2_policy_size_v2_1
+[Runner] Running experiment: c3_policy_size_v2_1
+[Runner] Done running experiment: c3_policy_size_v2_1
+[Runner] Running experiment: c4_policy_size_v2_1
+[Runner] Done running experiment: c4_policy_size_v2_1
+[Runner] Running experiment: c1_policy_size_v3_1
+[Runner] Done running experiment: c1_policy_size_v3_1
+[Runner] Running experiment: c2_policy_size_v3_1
+[Runner] Done running experiment: c2_policy_size_v3_1
+[Runner] Running experiment: c3_policy_size_v3_1
+[Runner] Done running experiment: c3_policy_size_v3_1
+[Runner] Running experiment: c4_policy_size_v3_1
+[Runner] Done running experiment: c4_policy_size_v3_1
+[Runner] Done running all experiments

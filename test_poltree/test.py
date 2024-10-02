@@ -1,6 +1,6 @@
 import json
-from test_poltree.poltree import NPolTree
-from test_poltree.poltree import resolveAccessRequestfromPolicy  # Assuming your slow function is in a separate file
+from poltree import NPolTree, HashPolicy
+from poltree import resolveAccessRequestfromPolicy  # Assuming your slow function is in a separate file
 from time import perf_counter as pf
 from time import perf_counter_ns as pfn
 
@@ -9,13 +9,22 @@ with open('policy.json', 'r') as f:
     policy_str = f.read()
 
 print("Converting policy to dictionary")
-policy = json.loads(policy_str)
+policy: dict = json.loads(policy_str)
 
-print("Initializing faster policy tree")
-pol_tree = NPolTree(policy_str)
-print("Node count: ", pol_tree.node_count)
-print("Allow count: ", pol_tree.allow_count)
-print("Deny count: ", pol_tree.deny_count)
+policy_hash = NPolTree.load_hash("policy_hash.txt")
+pol_tree = None
+if policy_hash != HashPolicy(policy):
+    print("Initializing faster policy tree")
+    pol_tree = NPolTree(policy_str)
+
+    # print("Storing policy tree")
+    # pol_tree.store_tree("policy_tree.json")
+    # print("Storing policy hash")
+    # pol_tree.store_hash("policy_hash.txt", policy)
+else:
+    print("Loading policy tree")
+    pol_tree = NPolTree()
+    pol_tree.load_tree("policy_tree.json")
 
 print("Reading access_request.txt")
 access_requests = []
@@ -30,6 +39,8 @@ def test_access_resolution():
     failed = 0
     fast_access_resolution_times = []
     slow_access_resolution_times = []
+    allowed = 0
+    denied = 0
     
     for i, access_request in enumerate(access_requests):
         slow_time = pfn()
@@ -50,6 +61,9 @@ def test_access_resolution():
         # Normalize fast_result for comparison (Allow/Deny to 1/0)
         fast_result_normalized = 1 if fast_result == "Allow" else 0
         
+        allowed += 1 if slow_result == 1 else 0
+        denied += 1 if slow_result == 0 else 0
+        
         if slow_result == fast_result_normalized:
             passed += 1
         else:
@@ -66,6 +80,8 @@ def test_access_resolution():
     
     print("Average Access Resolution Time - Slow: ", sum(slow_access_resolution_times)/len(slow_access_resolution_times), "ns")
     print("Average Access Resolution Time - Fast: ", sum(fast_access_resolution_times)/len(fast_access_resolution_times), "ns")
+    print(f"No. of Access Requests Allowed: {allowed}")
+    print(f"No. of Access Requests Denied: {denied}")
     exit(0)
 
 if __name__ == "__main__":

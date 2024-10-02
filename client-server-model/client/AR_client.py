@@ -117,17 +117,20 @@ def main():
     port = 8080
     ADDR = (host, port)
 
+
     # Create a socket object
     while True:
         try:
             CLIENT = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             CLIENT.connect(ADDR)
             break
-        except ConnectionRefusedError:
+        # except for multiple exceptions
+        except (ConnectionRefusedError, ConnectionResetError, TimeoutError):
             time.sleep(1e-1)
             logging.error("Server not available. Retrying...")
             if CLIENT: CLIENT.close()
             continue
+        
     
     logging.info("Server Connection successful!")
 
@@ -231,6 +234,8 @@ if __name__== "__main__":
     arg_parser.set_defaults(arrival_rate=10)
     
     args = arg_parser.parse_args()
+    
+    logging.info(f'Arguments: {args}')
     
     if args.arrival_rate:
         AR_ARRIVAL_RATE = args.arrival_rate
