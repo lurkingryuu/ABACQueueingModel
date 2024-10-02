@@ -127,6 +127,7 @@ VARIANT_CONFIGS = {
 
 
 MAX_NUMBER_OF_VACATIONS = 1 + 5
+MAX_NUMBER_OF_ACCESS_REQUESTS = 64
 
 
 def get_new_datagen():
@@ -292,6 +293,7 @@ def main():
                     "policy_resolution": config.get("policy_resolution"),
                     "vacation_model": config.get("vacation_model"),
                     "max_no_of_vacations": MAX_NUMBER_OF_VACATIONS,
+                    "max_access_requests": MAX_NUMBER_OF_ACCESS_REQUESTS,
                 },
                 client_config={
                     "arrival_rate": config.get("arrival_rate"),
