@@ -21,7 +21,6 @@ STATS = (
 )
 ALL_EXPERIMENTS_HISTORY_DIR = BASE_DIR / "client-server-model" / "experiments"
 ALL_EXPERIMENTS_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
-EXPERIMENTS_PER_CONFIG = 1
 
 """Server
 
@@ -128,7 +127,7 @@ VARIANT_CONFIGS = {
 
 MAX_NUMBER_OF_VACATIONS = 1 + 5
 MAX_NUMBER_OF_ACCESS_REQUESTS = 64
-
+EXPERIMENTS_PER_CONFIG = 20
 
 def get_new_datagen():
     # for a, s, o in zip(DATA_CONFIGS['attributes'], DATA_CONFIGS['subjects'], DATA_CONFIGS['objects']):
