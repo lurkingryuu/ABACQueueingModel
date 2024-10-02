@@ -1,5 +1,7 @@
 import json
 import math
+from hashlib import sha256
+
 
 class NPolTreeNode:
     def __init__(
@@ -15,15 +17,41 @@ class NPolTreeNode:
     def __repr__(self):
         return f"Node: ({self.attribute}, {self.decision}), IsLeaf: {self.is_leaf}, Branches: {list(self.branches.keys())}"
 
+    def to_dict(self):
+        """Serialize the node into a dictionary."""
+        return {
+            "id": self._id,
+            "attr_type": self.attr_type,
+            "attribute": self.attribute,
+            "branches": {key: branch.to_dict() for key, branch in self.branches.items()},
+            "decision": self.decision,
+            "is_leaf": self.is_leaf,
+        }
+
+    @staticmethod
+    def from_dict(data):
+        """Deserialize a node from a dictionary."""
+        node = NPolTreeNode(
+            attr_type=data["attr_type"],
+            attribute=data["attribute"],
+            decision=data["decision"],
+            is_leaf=data["is_leaf"]
+        )
+        node.branches = {
+            key: NPolTreeNode.from_dict(branch_data)
+            for key, branch_data in data.get("branches", {}).items()
+        }
+        return node
 
 class NPolTree:
-    def __init__(self, policy: str | dict):
+    def __init__(self, policy: str | dict = None):
         self.update_policy(policy)
 
     def update_policy(self, policy):
+        self.policy = {}
         if type(policy) == str:
             self.policy: dict = json.loads(policy)
-        else:
+        elif type(policy) == dict:
             self.policy: dict = policy
         if len(self.policy) == 0:
             self.root = NPolTreeNode(None, None, decision="Deny", is_leaf=True)
@@ -31,6 +59,8 @@ class NPolTree:
         self.stats = self.calculate_stats(self.policy)
         self.attributes = self.gather_attributes()
         self.attr_vals = self.gather_attr_vals()
+        self.node_count = 0
+        self.leaf_count = 0
         self.root = self.build_tree(self.policy, self.attributes)
 
     def gather_attributes(self):
@@ -106,12 +136,16 @@ class NPolTree:
         return selected_attribute
 
     def build_tree(self, policy_rules, attributes):
+        self.node_count += 1
         if not policy_rules:
+            self.leaf_count += 1
             return NPolTreeNode(None, None, decision="Deny", is_leaf=True)
         if len(attributes) == 0:
+            self.leaf_count += 1
             return NPolTreeNode(None, None, decision="Allow", is_leaf=True)
         attr_type, attribute = self.select_attribute(attributes, policy_rules)
         if attr_type is None:
+            self.leaf_count += 1
             return NPolTreeNode(None, None, decision="Allow", is_leaf=True)
         node = NPolTreeNode(attr_type, attribute)
         for value in self.attr_vals[attr_type][attribute]:
@@ -134,6 +168,15 @@ class NPolTree:
                 continue
             node.branches[value] = self.build_tree(new_policy_rules, new_attributes)
         return node
+        
+    def _print_tree(self, node, depth=0):
+        if node.is_leaf:
+            print(f"{'  ' * depth}Decision: {node.decision}")
+        else:
+            print(f"{'  ' * depth}Attribute: {node.attribute}")
+            for value, branch in node.branches.items():
+                print(f"{'  ' * depth}Value: {value}")
+                self._print_tree(branch, depth + 1)
     
     def print_tree(self):
         self._print_tree(self.root)
@@ -159,7 +202,44 @@ class NPolTree:
         return "Allow" if self._resolve(self.root, request) else "Deny"
     
     def insert_rule(self, rule_name, rule):
-        print(f"Inserting rule: {rule_name}: {rule}")
-        print(f"Prev policy size: {len(self.policy)}")
+        # print(f"Inserting rule: {rule_name}: {rule}")
+        # print(f"Prev policy size: {len(self.policy)}")
         self.policy[rule_name] = rule
         self.update_policy(self.policy)
+    
+    def store_tree(self, file_path):
+        """Store the tree structure to a JSON file."""
+        with open(file_path, 'w') as file:
+            json.dump(self.root.to_dict(), file)
+    
+    def load_tree(self, file_path):
+        """Load the tree structure from a JSON file."""
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+        self.root = NPolTreeNode.from_dict(data)
+    
+    @staticmethod
+    def store_hash(file_path, policy: dict):
+        with open(file_path, 'w') as file:
+            file.write(HashPolicy(policy))
+
+    @staticmethod
+    def load_hash(file_path):
+        with open(file_path, 'r') as file:
+            return (file.read())
+    
+
+# def make_hashable(obj):
+#     """Recursively convert a dictionary into a hashable tuple."""
+#     if isinstance(obj, dict):
+#         return tuple((key, make_hashable(value)) for key, value in sorted(obj.items()))
+#     elif isinstance(obj, list):
+#         return tuple(make_hashable(item) for item in obj)
+#     elif isinstance(obj, set):
+#         return frozenset(make_hashable(item) for item in obj)
+#     return obj
+
+
+def HashPolicy(policy):
+    """Hash a policy dictionary."""
+    return sha256(json.dumps(policy).encode()).hexdigest()
