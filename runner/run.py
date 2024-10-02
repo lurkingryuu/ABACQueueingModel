@@ -3,6 +3,8 @@ from pathlib import Path
 from subprocess import Popen
 import shlex
 from parser_data import display_stats
+import requests
+from time import perf_counter
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -172,13 +174,13 @@ def experiment(server_config: dict, client_config: dict):
     try:
         server_process = Popen(
             shlex.split(
-                f"run {SERVER} "
+                f"python {SERVER} "
                 + " ".join([f"--{k} {v}" for k, v in server_config.items()])
             )
         )
         client_process = Popen(
             shlex.split(
-                f"run {CLIENT} "
+                f"python {CLIENT} "
                 + " ".join([f"--{k} {v}" for k, v in client_config.items()])
             )
         )
@@ -207,7 +209,7 @@ def datagen(config: dict):
             or not config.get("objects")
         ):
             raise Exception("Invalid configuration")
-        command = f"run {DATA_GENERATOR} " + " ".join(
+        command = f"python {DATA_GENERATOR} " + " ".join(
             [f"--{k} {v}" for k, v in config.items()]
         )
         gen_data_process = Popen(shlex.split(command))
@@ -256,13 +258,24 @@ def cache_experiments():
     for file in ALL_EXPERIMENTS_HISTORY_DIR.glob('*.txt'):
         CACHE.append(file.stem)
 
+NTFY_URL = "https://ntfy.lurkingryuu.me/abacqm"
+
+def send_notif(message: str, title: str, priority: str = "default", tags: str = ""):
+    requests.post(NTFY_URL, data=message, headers={
+        "Title": title,
+        "Priority": priority,
+        "Tags": tags
+    })
+
 def main():
     for exp in range(1, EXPERIMENTS_PER_CONFIG + 1):
         prev_datagen_config = {}
         for experiment_file, config in efficient_experiment_gen(exp):
             if experiment_file.split('.')[0] in CACHE:
                 print(f'[Runner] Skipping experiment: {experiment_file.split(".")[0]}')
+                send_notif(f"Skipping experiment: {experiment_file.split('.')[0]}", "Experiment Skipped", "low", "warning")
                 continue
+            exp_start = perf_counter()
             print(f'[Runner] Running experiment: {experiment_file.split(".")[0]}')
             datagen_config = {
                 "attributes": config.get("attributes"),
@@ -287,7 +300,10 @@ def main():
             os.rename(STATS, ALL_EXPERIMENTS_HISTORY_DIR / experiment_file)
             display_stats(ALL_EXPERIMENTS_HISTORY_DIR / experiment_file)
             print(f'[Runner] Done running experiment: {experiment_file.split(".")[0]}')
+            exp_end = perf_counter()
+            send_notif(f"Experiment: {experiment_file.split('.')[0]} completed in {exp_end - exp_start} seconds", "Experiment Completed", "default", "partying_face")
     print("[Runner] Done running all experiments")
+    send_notif("All experiments completed", "All Experiments Completed", "high", "tada")
 
 
 if __name__ == "__main__":
