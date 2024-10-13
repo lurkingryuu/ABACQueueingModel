@@ -127,7 +127,7 @@ VARIANT_CONFIGS = {
 
 MAX_NUMBER_OF_VACATIONS = 1 + 5
 MAX_NUMBER_OF_ACCESS_REQUESTS = 64
-EXPERIMENTS_PER_CONFIG = 20
+EXPERIMENTS_PER_CONFIG = 1
 
 def get_new_datagen():
     # for a, s, o in zip(DATA_CONFIGS['attributes'], DATA_CONFIGS['subjects'], DATA_CONFIGS['objects']):

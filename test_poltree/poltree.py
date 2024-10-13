@@ -231,9 +231,9 @@ class NPolTree:
                 access |= self._resolve(node.branches[value], request, depth + 1)
                 if access:
                     break
-        if len(value) and "*" not in value:
-            if "*" in node.branches:
-                access |= self._resolve(node.branches["*"], request, depth + 1)
+            if len(value) and "*" not in value:
+                if "*" in node.branches:
+                    access |= self._resolve(node.branches["*"], request, depth + 1)
         return access
     
     def resolve(self, request):

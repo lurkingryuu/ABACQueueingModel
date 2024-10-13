@@ -572,6 +572,31 @@ def generateStrollerInput():
     write_str = f"5: Generate Stoller's input file = {t_end - t_start} seconds\n\n"
     stats_report.write(write_str)
 
+# Create a list of 10 fixed aux list entries. These entries must not be resolved by the policy
+def createFixedAuxList():
+    global userbase, objectbase, policy, sub_obj_pairs_not_taken
+
+    fixed_aux_list = []
+    for i in range(10):
+        if len(sub_obj_pairs_not_taken) == 0:
+            break
+        fixed_aux_list.append([sub_obj_pairs_not_taken[0][0], sub_obj_pairs_not_taken[0][1], 'read'])
+        sub_obj_pairs_not_taken.pop(0)
+
+    while len(fixed_aux_list) < 10:
+        # repeat the same entries
+        for i in range(10 - len(fixed_aux_list)):
+            fixed_aux_list.append(fixed_aux_list[i])
+
+    
+
+    # Write the fixed aux list into a text file
+    write_str = ''
+    file_ptr = open(DATABASE_DIR / 'aux_list' / 'fixed_aux_list.txt', 'w')
+    for req in fixed_aux_list:
+        write_str += str(req) + '\n'
+    file_ptr.write(write_str)
+    file_ptr.close()
 
 
 # Main function to generate the test data
@@ -611,6 +636,9 @@ if __name__ == "__main__":
 
     # Generate ACM corresoponding to Stroller's input
     generateACM()
+    
+    # Generate fixed aux list
+    createFixedAuxList()
 
     print("\n\n -------- Test data successfully generated ! -------- \n\n")
 

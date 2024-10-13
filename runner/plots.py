@@ -10,6 +10,97 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALL_EXPERIMENTS_HISTORY_DIR = BASE_DIR / "client-server-model" / "experiments"
 
+# def getplots(data_ART, data_NAR, data_AIVT, data_AVD, parameter, param_string='Initial Policy Size'):
+#     # Set the theme
+#     sns.set_theme(style="ticks")
+    
+#     print(f"Parameter: {parameter}")
+
+#     # Define the color palette
+#     palette = sns.color_palette(["red", "green", "blue", "black"])
+
+#     # Define markers for each configuration
+#     markers = ['s', 'X', 'o', '^']
+
+#     data = []
+#     dic_ART = {
+#         'Avg. Resolution Time (in msec)': data_ART,
+#         'Configurations': [
+#             'C1', 'C1', 'C1', 'C1', 'C2', 'C2', 'C2', 'C2', 'C3', 'C3', 'C3', 'C3', 'C4', 'C4', 'C4', 'C4'
+#         ],
+#         param_string: parameter
+#     }
+#     dic_NAR = {
+#         'Avg. number of requests': data_NAR,
+#         'Configurations': [
+#             'C1', 'C1', 'C1', 'C1', 'C2', 'C2', 'C2', 'C2', 'C3', 'C3', 'C3', 'C3', 'C4', 'C4', 'C4', 'C4'
+#         ],
+#         param_string: parameter
+#     }
+#     dic_AIVT = {
+#         'Avg. inter vacation duration (in sec)': data_AIVT,
+#         'Configurations': [
+#             'C1', 'C1', 'C1', 'C1', 'C2', 'C2', 'C2', 'C2', 'C3', 'C3', 'C3', 'C3', 'C4', 'C4', 'C4', 'C4'
+#         ],
+#         param_string: parameter
+#     }
+#     dic_AVD = {
+#         'Avg. vacation duration (in sec)': data_AVD,
+#         'Configurations': [
+#             'C1', 'C1', 'C1', 'C1', 'C2', 'C2', 'C2', 'C2', 'C3', 'C3', 'C3', 'C3', 'C4', 'C4', 'C4', 'C4'
+#         ],
+#         param_string: parameter
+#     }
+#     data.append(dic_ART)
+#     data.append(dic_NAR)
+#     data.append(dic_AIVT)
+#     data.append(dic_AVD)
+#     dots = []
+#     for i in range(4):
+#         print(data[i])
+#         dots.append(pd.DataFrame(data[i]))
+
+#     # Create a subplot grid
+#     fig, axs = plt.subplots(2, 2, figsize=(8.4, 7))
+#     axs = axs.flatten()
+
+#     count = 0
+#     y_label = ['Avg. Resolution Time (in msec)', 'Avg. number of requests', 'Avg. inter vacation duration (in sec)',
+#                'Avg. vacation duration (in sec)']
+#     enum = ['(a)', '(b)', '(c)', '(d)']
+#     # Plot each subplot
+#     for i, ax in enumerate(axs):
+
+#         sns.lineplot(
+#             data=dots[count],
+#             x=param_string, y=y_label[count],
+#             hue="Configurations",
+#             palette=palette,
+#             style="Configurations",  # Specify style for different markers
+#             markers=markers,  # Specify markers for each configuration
+#             markersize=7,
+#             ax=ax
+#         )
+#         mark_string = param_string + '\n' + enum[count]
+#         ax.set_xlabel(mark_string)
+#         ax.set_ylabel(y_label[count])
+#         ax.tick_params(axis='both')
+#         ax.get_legend().remove()
+#         count += 1
+
+#         # Add a grid of dotted lines
+#         ax.grid(True, linestyle='--', alpha=0.5)
+
+#     plt.subplots_adjust(wspace=0.3, hspace=0.33)
+
+#     # Create a single, shared legend for the figure with entries on a single line
+#     handles, labels = axs[0].get_legend_handles_labels()
+#     fig.legend(handles, [f"{label}" for label in labels], loc='upper right', bbox_to_anchor=(0.65, 0.48),
+#                borderaxespad=0, fontsize='xx-small', ncol=4)
+
+#     plt.savefig(ALL_EXPERIMENTS_HISTORY_DIR / f'{param_string}.png')
+#     return
+
 def getplots(data_ART, data_NAR, data_AIVT, data_AVD, parameter, param_string='Initial Policy Size'):
     # Set the theme
     sns.set_theme(style="ticks")
@@ -60,16 +151,16 @@ def getplots(data_ART, data_NAR, data_AIVT, data_AVD, parameter, param_string='I
         print(data[i])
         dots.append(pd.DataFrame(data[i]))
 
-    # Create a subplot grid
-    fig, axs = plt.subplots(2, 2, figsize=(8.4, 7))
+    # Create a subplot grid for line plots and box plots
+    fig, axs = plt.subplots(4, 2, figsize=(12, 14))  # Adjust grid for 4 line plots and 4 box plots (4 rows, 2 columns)
     axs = axs.flatten()
 
     count = 0
     y_label = ['Avg. Resolution Time (in msec)', 'Avg. number of requests', 'Avg. inter vacation duration (in sec)',
                'Avg. vacation duration (in sec)']
     enum = ['(a)', '(b)', '(c)', '(d)']
-    # Plot each subplot
-    for i, ax in enumerate(axs):
+    # Plot each line plot
+    for i in range(0, 8, 2):  # Adjust loop to fill grid with line plots in even-indexed subplots
 
         sns.lineplot(
             data=dots[count],
@@ -79,17 +170,27 @@ def getplots(data_ART, data_NAR, data_AIVT, data_AVD, parameter, param_string='I
             style="Configurations",  # Specify style for different markers
             markers=markers,  # Specify markers for each configuration
             markersize=7,
-            ax=ax
+            ax=axs[i]  # Use even-indexed ax for line plots
         )
         mark_string = param_string + '\n' + enum[count]
-        ax.set_xlabel(mark_string)
-        ax.set_ylabel(y_label[count])
-        ax.tick_params(axis='both')
-        ax.get_legend().remove()
-        count += 1
+        axs[i].set_xlabel(mark_string)
+        axs[i].set_ylabel(y_label[count])
+        axs[i].tick_params(axis='both')
+        axs[i].get_legend().remove()
+        axs[i].grid(True, linestyle='--', alpha=0.5)
 
-        # Add a grid of dotted lines
-        ax.grid(True, linestyle='--', alpha=0.5)
+        # Plot box plot in the corresponding odd-indexed subplot
+        sns.boxplot(
+            data=dots[count],
+            x="Configurations", y=y_label[count],
+            palette=palette,
+            ax=axs[i+1]  # Use odd-indexed ax for box plots
+        )
+        axs[i+1].set_xlabel("Configurations")
+        axs[i+1].set_ylabel(y_label[count])
+        axs[i+1].grid(True, linestyle='--', alpha=0.5)
+
+        count += 1
 
     plt.subplots_adjust(wspace=0.3, hspace=0.33)
 
@@ -100,7 +201,6 @@ def getplots(data_ART, data_NAR, data_AIVT, data_AVD, parameter, param_string='I
 
     plt.savefig(ALL_EXPERIMENTS_HISTORY_DIR / f'{param_string}.png')
     return
-
 
 def get_avg_inter_vacation_time(vac_start_time, vac_durations):
     inter_vacation_time = []

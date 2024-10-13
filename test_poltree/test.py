@@ -11,7 +11,8 @@ with open('policy.json', 'r') as f:
 print("Converting policy to dictionary")
 policy: dict = json.loads(policy_str)
 
-policy_hash = NPolTree.load_hash("policy_hash.txt")
+# policy_hash = NPolTree.load_hash("policy_hash.txt")
+policy_hash = None
 pol_tree = None
 if policy_hash != HashPolicy(policy):
     print("Initializing faster policy tree")

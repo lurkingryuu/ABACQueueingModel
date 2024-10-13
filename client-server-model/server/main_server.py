@@ -56,8 +56,11 @@ policy = {}
 
 # --- Shared Variables ---
 
+# track access requests resolution
+ar_resolved = [0, 0, 0]
+
 # Auxiliary list
-aux_list = deque()
+aux_list: deque = deque()
 MAX_AUX_LIST = 10000
 AL_UPDATE_RATE = 15
 
@@ -101,7 +104,7 @@ RUNNING = True
 
 def sendMessage(conn, message):
     msg_send = b''
-    if type(message) == dict:
+    if isinstance(message, dict) or isinstance(message, deque):
         msg_send = pickle.dumps(message)
     else:
         msg_send = bytes(message, FORMAT)
@@ -229,6 +232,9 @@ def resolveAccessRequestfromPolicy(access_request, policy, type_=1):
             if rule["sub"][attr] == ['*']:
                 continue
             curr_sub_attr_check = 0
+            if attr not in access_request["sub"]:
+                sub_attr_check = 0
+                break
             for value in access_request["sub"][attr]:
                 if value in rule["sub"][attr]:
                     curr_sub_attr_check = 1
@@ -244,6 +250,9 @@ def resolveAccessRequestfromPolicy(access_request, policy, type_=1):
                 continue
             curr_obj_attr_check = 0
 
+            if attr not in access_request["obj"]:
+                obj_attr_check = 0
+                break
             for value in access_request["obj"][attr]:
                 if value in rule["obj"][attr]:
                     curr_obj_attr_check = 1
@@ -273,6 +282,10 @@ def handle_client(conn, address):
     sendMessage(conn, sub_attr_val)
     sendMessage(conn, obj_attr_val)
     sendMessage(conn, policy)
+    
+    # send auxiliary list
+    with aux_list_lock:
+        sendMessage(conn, aux_list)
     
     global_start_timer = time.perf_counter()
     CLIENT_THREAD_FIRST_EVENT.set()
@@ -358,6 +371,11 @@ def generateCombinedPolicy():
     rule_ID = ori_no_of_rules + 1
     
     with aux_list_lock:
+        new_aux_list = deque()
+        for i in range(10):
+            if len(aux_list) == 0:
+                break
+            new_aux_list.append(aux_list.popleft())
         while len(aux_list) != 0:
             temp_access = aux_list.popleft()
             usr = temp_access[0]
@@ -384,6 +402,8 @@ def generateCombinedPolicy():
                     combined_policy[rule_key]["obj"][attr] = ["*"]
                     continue
                 combined_policy[rule_key]["obj"][attr] = [objectbase[obj][attr]]
+        aux_list = new_aux_list.copy()
+        logging.debug(f"Auxiliary list after combination: {aux_list}")
     logging.debug(f"Original: {ori_no_of_rules} | Combined: = {len(combined_policy)}")
 
     with open(DATABASE_DIR / "policy" / "curr_policy.json", "w") as db:
@@ -455,16 +475,23 @@ def resolveAccessRequest():
                 case VacationModel.ACCESS_QUEUE:
                     condn_check = len(access_request_queue)==0
                 case VacationModel.ACCESS_SERVED:
-                    condn_check = NO_OF_ACCESS_REQUESTS_SERVED >= MAX_ACCESS_REQUESTS_PER_VACATION
+                    ar_cond = (NO_OF_ACCESS_REQUESTS_SERVED >= MAX_ACCESS_REQUESTS_PER_VACATION)
+                    q_empty_cond = (len(access_request_queue)==0)
+                    condn_check = ar_cond or q_empty_cond
                 case VacationModel.AUX_LIST:
-                    condn_check = len(aux_list) >= MAX_AUX_LIST_LEN_PER_VACATION
+                    condn_check = len(aux_list) - 10 >= MAX_AUX_LIST_LEN_PER_VACATION
                 case _:
                     condn_check = len(access_request_queue)==0
         
         curr_time = time.perf_counter()
 
-        if condn_check == 1 and curr_server_state == 1 and (CURRENT_VACATION_MODEL != VacationModel.ACCESS_QUEUE or (curr_time - global_start_timer) >= 3):
+        if condn_check == 1 and curr_server_state == 1 and (CURRENT_VACATION_MODEL == VacationModel.AUX_LIST or (curr_time - global_start_timer) >= 3):
             logging.debug(f'Time elapsed: {curr_time - global_start_timer}')
+            if CURRENT_VACATION_MODEL == VacationModel.ACCESS_SERVED:
+                if ar_cond:
+                    logging.info(f'Going to vacation due to access requests condition')
+                elif q_empty_cond:
+                    logging.info(f'Going to vacation due to empty queue condition')
             logging.debug(f'Number of access requests served: {NO_OF_ACCESS_REQUESTS_SERVED}')
             logging.info('Mining process starting... stay tuned!')
             if NO_OF_VACATIONS >= 2:
@@ -552,7 +579,7 @@ def resolveAccessRequest():
                 else:
                     resolution_type = 3
                     ar_queue_time = time.perf_counter() - access_request[2]
-            
+            ar_resolved[resolution_type - 1] += 1
             reportResult(access_request, resolution_type, ar_policy_time, ar_ACM_time, ar_queue_time, no_of_jobs)
             NO_OF_ACCESS_REQUESTS_SERVED += 1
             if CURRENT_VACATION_MODEL in [VacationModel.ACCESS_QUEUE, VacationModel.ACCESS_SERVED]:
@@ -664,7 +691,7 @@ def extractRefinedPolicy():
 
 
 def init():
-    global sub_attr, obj_attr, sub_attr_val, obj_attr_val, sub_obj_pairs_not_taken,userbase, objectbase, policy
+    global sub_attr, obj_attr, sub_attr_val, obj_attr_val, sub_obj_pairs_not_taken,userbase, objectbase, policy, aux_list
     with open(DATABASE_DIR / "userbase" / "sub_attr.json", 'r') as db:
         sub_attr = json.load(db)
     with open(DATABASE_DIR / "objectbase" / "obj_attr.json", 'r') as db:
@@ -680,6 +707,9 @@ def init():
     with open(DATABASE_DIR / "policy" / "policy.json", 'r') as db:
         policy = json.load(db)
 
+    logging.debug(f"user attribute-values: {sub_attr_val}")
+    logging.debug(f"object attribute-values: {obj_attr_val}")
+
 
     # Make a copy of the original policy
     original_file_name = DATABASE_DIR / "policy" / "policy.json"
@@ -694,6 +724,20 @@ def init():
             continue
         usr_obj_pair = line.split(', ')[:2]
         sub_obj_pairs_not_taken.append([usr_obj_pair[0][1:], usr_obj_pair[1]])
+    
+    file_ptr.close()
+    
+    file_ptr = open(DATABASE_DIR / "aux_list" / "fixed_aux_list.txt", 'r')
+    with aux_list_lock:
+        for line in file_ptr.readlines():
+            line = line.strip()
+            if line == '': continue
+            access_entry: list = eval(line)
+            aux_list.append(access_entry)
+    file_ptr.close()
+    
+    with aux_list_lock:
+        logging.debug(f"Auxiliary List: {aux_list}")
 
     logging.debug("Init process over !\n")
 
@@ -781,6 +825,22 @@ def main():
     ACCEPT_THREAD.join()
     UPDATE_AUX_LIST_THREAD.join()
 
+    # ar_resolved stats
+    logging.info(f"No. of access requests resolved by: ")
+    logging.info(f"Policy: {ar_resolved[0]}")
+    logging.info(f"Auxiliary List: {ar_resolved[1]}")
+    logging.info(f"None: {ar_resolved[2]}")
+    logging.info(f"Total: {sum(ar_resolved)}")
+    
+    # also write to the file
+    ar_stats.write(f"\n\n------ No. of access requests resolved by: ------\n")
+    ar_stats.write(f"Policy: {ar_resolved[0]}\n")
+    ar_stats.write(f"Auxiliary List: {ar_resolved[1]}\n")
+    ar_stats.write(f"None: {ar_resolved[2]}\n")
+    ar_stats.write(f"Total: {sum(ar_resolved)}\n")
+    ar_stats.write("-----------------------------\n")
+
+
     # Close the server
     SERVER.close()
     logging.info("------------- Server Closed ! -------------")
@@ -829,5 +889,10 @@ if __name__ == "__main__":
         logging.info('Closing the server...')
         SERVER.close()
         logging.info('------------- Server Closed ! -------------')
+        sys.exit(0)
+    finally:
+        logging.info('Exiting...')
+        # close all open files
+        ar_stats.close()
         sys.exit(0)
         
