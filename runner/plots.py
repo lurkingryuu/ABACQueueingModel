@@ -36,6 +36,7 @@ def getplots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_string='Init
                       'C2', 'C2', 'C2', 'C2',
                       'C3', 'C3', 'C3', 'C3',
                       'C4', 'C4', 'C4', 'C4']
+    configurations = [conf.replace('C', 'QM-PE_') for conf in configurations]
     
     parameter_repeated = parameter * 4  # Repeat parameter values for 4 configurations
     dic_ART = {
@@ -81,8 +82,8 @@ def getplots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_string='Init
                 })
         box_data_list.append(pd.DataFrame(flat_data))
 
-    # Create a subplot grid for line plots and box plots (4 metrics x 2 plots each)
-    fig, axs = plt.subplots(4, 2, figsize=(16, 20))  # Increased figsize for better readability
+    # Create a subplot grid for line plots, box plots, and bar plots (4 metrics x 3 plots each)
+    fig, axs = plt.subplots(4, 3, figsize=(24, 20))  # Adjusted to 3 columns, increased figsize for better readability
     axs = axs.flatten()
 
     y_labels = [
@@ -104,31 +105,54 @@ def getplots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_string='Init
             style="Configurations",
             markers=markers,
             markersize=7,
-            ax=axs[2 * i]
+            ax=axs[3 * i]  # Left-hand plot in the row (column 1)
         )
-        axs[2 * i].set_xlabel(f"{param_string}\n{titles[i]}")
-        axs[2 * i].set_ylabel(y_labels[i])
-        axs[2 * i].tick_params(axis='both')
-        axs[2 * i].grid(True, linestyle='--', alpha=0.5)
+        axs[3 * i].set_xlabel(f"{param_string}\n{titles[i]}")
+        axs[3 * i].set_ylabel(y_labels[i])
+        axs[3 * i].tick_params(axis='both')
+        axs[3 * i].grid(True, linestyle='--', alpha=0.5)
         if i == 0:
-            axs[2 * i].legend(title='Configurations', fontsize='small', title_fontsize='small')
+            axs[3 * i].legend(title='Configurations', fontsize='small', title_fontsize='small')
         else:
-            axs[2 * i].get_legend().remove()
+            axs[3 * i].get_legend().remove()
 
         # Box Plot
-        # Prepare data for box plot by combining both the parameter values and configurations for the x-axis
         sns.boxplot(
             data=box_data_list[i],
             x=f"Configurations",
             y='Value',
             hue=param_string,
             palette=palette,
-            ax=axs[2 * i + 1]
+            ax=axs[3 * i + 1]  # Middle plot in the row (column 2)
         )
-        axs[2 * i + 1].set_xlabel("Configurations and Parameter")
-        axs[2 * i + 1].set_ylabel(y_labels[i])
-        axs[2 * i + 1].tick_params(axis='both')
-        axs[2 * i + 1].grid(True, linestyle='--', alpha=0.5)
+        axs[3 * i + 1].set_xlabel("Configurations and Parameter")
+        axs[3 * i + 1].set_ylabel(y_labels[i])
+        axs[3 * i + 1].tick_params(axis='both')
+        axs[3 * i + 1].grid(True, linestyle='--', alpha=0.5)
+
+        # Bar Plot
+        bar_data = pd.DataFrame({
+            param_string: parameter_repeated,
+            'Configurations': configurations,
+            y_labels[i]: [sum(all_data[i][j]) / len(all_data[i][j]) if len(all_data[i][j]) > 0 else 0 for j in range(len(all_data[i]))]  # Avg. values
+        })
+
+        sns.barplot(
+            data=bar_data,
+            x=param_string,
+            y=y_labels[i],
+            hue='Configurations',
+            palette=palette,
+            ax=axs[3 * i + 2]  # Right-hand plot in the row (column 3)
+        )
+        axs[3 * i + 2].set_xlabel(f"{param_string}\n{titles[i]}")
+        axs[3 * i + 2].set_ylabel(y_labels[i])
+        axs[3 * i + 2].grid(True, linestyle='--', alpha=0.5)
+
+        # Dynamically set y-limits for the bar plot to make variation observable
+        y_min = min(bar_data[y_labels[i]]) - 0.05 * min(bar_data[y_labels[i]])
+        y_max = max(bar_data[y_labels[i]]) + 0.05 * max(bar_data[y_labels[i]])
+        axs[3 * i + 2].set_ylim(y_min, y_max)
 
     # Adjust layout for better spacing
     plt.tight_layout(rect=[0, 0, 0.95, 0.96])
@@ -144,7 +168,141 @@ def getplots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_string='Init
     plt.savefig(PLOTS_DIR / f'{param_string}.png')
     plt.close(fig)  # Close the figure to free memory
 
+
+def plot_line_plots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_string='Initial Policy Size'):
+    data_ART = [sum(data_RT[i]) / len(data_RT[i]) if len(data_RT[i]) > 0 else 0 for i in range(len(data_RT))]
+    data_ANAR = [sum(data_NAR[i]) / len(data_NAR[i]) if len(data_NAR[i]) > 0 else 0 for i in range(len(data_NAR))]
+    data_AIVT = [sum(data_IVT[i]) / len(data_IVT[i]) if len(data_IVT[i]) > 0 else 0 for i in range(len(data_IVT))]
+    data_AVD = [sum(data_VD[i]) / len(data_VD[i]) if len(data_VD[i]) > 0 else 0 for i in range(len(data_VD))]
+
+    sns.set_theme(style="ticks")
+    palette = sns.color_palette(["red", "green", "blue", "black"])
+    markers = ['s', 'X', 'o', '^']
+
+    dots = []
+    configurations = ['C1', 'C1', 'C1', 'C1',
+                      'C2', 'C2', 'C2', 'C2',
+                      'C3', 'C3', 'C3', 'C3',
+                      'C4', 'C4', 'C4', 'C4']
+    configurations = [conf.replace('C', 'QM-PE_') for conf in configurations]
     
+    parameter_repeated = parameter * 4
+    dic_ART = {
+        'Avg. Resolution Time (in msec)': data_ART,
+        'Configurations': configurations,
+        param_string: parameter_repeated
+    }
+    dic_ANAR = {
+        'Avg. number of requests': data_ANAR,
+        'Configurations': configurations,
+        param_string: parameter_repeated
+    }
+    dic_AIVT = {
+        'Avg. inter vacation duration (in sec)': data_AIVT,
+        'Configurations': configurations,
+        param_string: parameter_repeated
+    }
+    dic_AVD = {
+        'Avg. vacation duration (in sec)': data_AVD,
+        'Configurations': configurations,
+        param_string: parameter_repeated
+    }
+    data = [dic_ART, dic_ANAR, dic_AIVT, dic_AVD]
+    
+    for i in range(4):
+        dots.append(pd.DataFrame(data[i]))
+
+    fig, axs = plt.subplots(2, 2, figsize=(12, 10))  # Adjust for 2x2 layout
+    axs = axs.flatten()
+
+    y_labels = [
+        'Avg. Resolution Time (in msec)',
+        'Avg. number of requests',
+        'Avg. inter vacation duration (in sec)',
+        'Avg. vacation duration (in sec)'
+    ]
+    titles = ['(a)', '(b)', '(c)', '(d)']
+
+    for i in range(4):
+        sns.lineplot(
+            data=dots[i],
+            x=param_string,
+            y=y_labels[i],
+            hue="Configurations",
+            palette=palette,
+            style="Configurations",
+            markers=markers,
+            markersize=7,
+            ax=axs[i]
+        )
+        axs[i].set_xlabel(f"{param_string}\n{titles[i]}")
+        axs[i].set_ylabel(y_labels[i])
+        axs[i].tick_params(axis='both')
+        axs[i].set_xticks(parameter)
+        axs[i].grid(True, linestyle='--', alpha=0.5)
+
+        if i == 0:
+            axs[i].legend(title='Configurations', fontsize='small', title_fontsize='small')
+        else:
+            axs[i].get_legend().remove()
+
+    plt.tight_layout()
+    plt.savefig(PLOTS_DIR / f'line_plots_{param_string}.png')
+    plt.close(fig)
+
+def plot_box_plots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_string='Initial Policy Size'):
+    sns.set_theme(style="ticks")
+    palette = sns.color_palette(["red", "green", "blue", "black"])
+    
+    all_data = [data_RT, data_NAR, data_IVT, data_VD]
+    configurations = ['C1', 'C1', 'C1', 'C1',
+                      'C2', 'C2', 'C2', 'C2',
+                      'C3', 'C3', 'C3', 'C3',
+                      'C4', 'C4', 'C4', 'C4']
+    configurations = [conf.replace('C', 'QM-PE_') for conf in configurations]
+
+    parameter_repeated = parameter * 4
+    box_data_list = []
+
+    for i in range(4):
+        flat_data = []
+        for j in range(len(configurations)):
+            for value in all_data[i][j]:
+                flat_data.append({
+                    'Configurations': configurations[j],
+                    param_string: parameter[j % len(parameter)],
+                    'Metric': [f'Avg. Resolution Time (in msec)', 'Avg. number of requests', 'Avg. inter vacation duration (in sec)', 'Avg. vacation duration (in sec)'][i],
+                    'Value': value
+                })
+        box_data_list.append(pd.DataFrame(flat_data))
+
+    fig, axs = plt.subplots(2, 2, figsize=(12, 10))  # Adjust for 2x2 layout
+    axs = axs.flatten()
+
+    y_labels = [
+        'Avg. Resolution Time (in msec)',
+        'Avg. number of requests',
+        'Avg. inter vacation duration (in sec)',
+        'Avg. vacation duration (in sec)'
+    ]
+    titles = ['(a)', '(b)', '(c)', '(d)']
+
+    for i in range(4):
+        sns.boxplot(
+            data=box_data_list[i],
+            x="Configurations",
+            y='Value',
+            hue=param_string,
+            palette=palette,
+            ax=axs[i]
+        )
+        axs[i].set_xlabel(f"Configurations\n{titles[i]}")
+        axs[i].set_ylabel(y_labels[i])
+        axs[i].grid(True, linestyle='--', alpha=0.5)
+
+    plt.tight_layout()
+    plt.savefig(PLOTS_DIR / f'box_plots_{param_string}.png')
+    plt.close(fig)
 
 
 def get_avg_inter_vacation_time(vac_start_time, vac_durations):
@@ -165,7 +323,7 @@ VARIANT_CONFIGS = {
     "al_update_rate": [20, 15, 7, 2],
     "arrival_rate": [150, 80, 20, 5],
     "attributes": [4, 6, 8, 10],
-    "policy_size": [15, 25, 35, 45],
+    "policy_size": [100, 300, 600, 1000],
 }
 
 STATS_TITLES = ['res_time', 'inter_vac_duration', 'no_of_jobs', 'vac_duration']
@@ -195,22 +353,21 @@ keys = list(store['al_update_rate']['res_time'].keys())
 keys.sort()
 print(f"Keys: {keys}")
 
-def plot_param(param: str):
+def plot_param(param: str, modes: list = ['line', 'box']):
     data_RT = [ store[param]['res_time'][key] for key in keys ]
     data_NAR = [ store[param]['no_of_jobs'][key] for key in keys ]
     data_IVT = [ store[param]['inter_vac_duration'][key] for key in keys ]
     data_VD = [ store[param]['vac_duration'][key] for key in keys ]
-    getplots(data_RT, data_NAR, data_IVT, data_VD, VARIANT_CONFIGS[param], param)
-    
-    # data_ART = [ sum(store[param]['res_time'][key])/len(store[param]['res_time'][key]) for key in keys ]
-    # data_ANAR = [ sum(store[param]['no_of_jobs'][key])/len(store[param]['no_of_jobs'][key]) for key in keys ]
-    # data_AIVT = [ sum(store[param]['inter_vac_duration'][key])/len(store[param]['inter_vac_duration'][key]) for key in keys ]
-    # data_AVD = [ sum(store[param]['vac_duration'][key])/len(store[param]['vac_duration'][key]) for key in keys ]
-    # getplots(data_ART, data_ANAR, data_AIVT, data_AVD, VARIANT_CONFIGS[param]*4, param)
+    # getplots(data_RT, data_NAR, data_IVT, data_VD, VARIANT_CONFIGS[param], param)
+    if 'line' in modes:
+        plot_line_plots(data_RT, data_NAR, data_IVT, data_VD, VARIANT_CONFIGS[param], param)
+    if 'box' in modes:
+        plot_box_plots(data_RT, data_NAR, data_IVT, data_VD, VARIANT_CONFIGS[param], param)
+
 
 if __name__ == "__main__":
-    plot_param('al_update_rate')
-    plot_param('arrival_rate')
-    plot_param('attributes')
-    plot_param('policy_size')
+    plot_param('al_update_rate', ['line'])
+    plot_param('arrival_rate', ['box'])
+    plot_param('attributes', ['line'])
+    plot_param('policy_size', ['line'])
     print("Done")
