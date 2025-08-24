@@ -1,0 +1,267 @@
+Job 1: Waiting time = 0.0004428364336490631 | Resolution time = 0.0004219617694616318 | Resolution type = Policy
+Job 2: Waiting time = 0.00137245561927557 | Resolution time = 0.001352773979306221 | Resolution type = Policy
+Job 3: Waiting time = 0.001146974042057991 | Resolution time = 0.0011283932253718376 | Resolution type = None
+Job 4: Waiting time = 0.0015463195741176605 | Resolution time = 0.0015262849628925323 | Resolution type = None
+Job 5: Waiting time = 0.0001133820042014122 | Resolution time = 9.6173956990242e-05 | Resolution type = Policy
+Job 6: Waiting time = 0.00046355370432138443 | Resolution time = 0.00044920388609170914 | Resolution type = Policy
+Job 7: Waiting time = 0.0012208214029669762 | Resolution time = 0.0012039495632052422 | Resolution type = None
+Job 8: Waiting time = 0.00121338851749897 | Resolution time = 0.0011992808431386948 | Resolution type = None
+Job 9: Waiting time = 9.688083082437515e-05 | Resolution time = 8.034240454435349e-05 | Resolution type = Policy
+Job 10: Waiting time = 0.0009367996826767921 | Resolution time = 0.0009228168055415154 | Resolution type = Policy
+Job 11: Waiting time = 0.0006320970132946968 | Resolution time = 0.0006172247231006622 | Resolution type = Policy
+Job 12: Waiting time = 0.0012382688000798225 | Resolution time = 0.0012213345617055893 | Resolution type = None
+Job 13: Waiting time = 0.0013280315324664116 | Resolution time = 0.0013120658695697784 | Resolution type = None
+Job 14: Waiting time = 0.00028789136558771133 | Resolution time = 0.0002714097499847412 | Resolution type = Policy
+
+----- VACATION Started -----
+Start time: 3.000193439424038
+Duration: 11.402954397723079
+Jobs in the system: 56
+------ VACATION ENDED ------
+
+--- Normal Period 2 starts... ---
+Job 15: Waiting time = 11.262841193936765 | Resolution time = 0.001508568413555622 | Resolution type = None
+Job 16: Waiting time = 11.072825723327696 | Resolution time = 0.0006019389256834984 | Resolution type = None
+Job 17: Waiting time = 10.863179468549788 | Resolution time = 0.0006250571459531784 | Resolution type = None
+Job 18: Waiting time = 10.658177999779582 | Resolution time = 0.0006210794672369957 | Resolution type = None
+Job 19: Waiting time = 10.456708101555705 | Resolution time = 0.0005825953558087349 | Resolution type = None
+Job 20: Waiting time = 10.24928420316428 | Resolution time = 0.0006571467965841293 | Resolution type = None
+Job 21: Waiting time = 10.058399360626936 | Resolution time = 0.0006071701645851135 | Resolution type = None
+Job 22: Waiting time = 9.855095139704645 | Resolution time = 0.0005546612665057182 | Resolution type = None
+Job 23: Waiting time = 9.655181453563273 | Resolution time = 0.0005881544202566147 | Resolution type = None
+Job 24: Waiting time = 9.441461960785091 | Resolution time = 0.0005802884697914124 | Resolution type = None
+Job 25: Waiting time = 9.233462372794747 | Resolution time = 0.0006044693291187286 | Resolution type = None
+Job 26: Waiting time = 9.03269859496504 | Resolution time = 0.0005925754085183144 | Resolution type = None
+Job 27: Waiting time = 8.847712808288634 | Resolution time = 0.0006018290296196938 | Resolution type = None
+Job 28: Waiting time = 8.655892362818122 | Resolution time = 0.0006067920476198196 | Resolution type = None
+Job 29: Waiting time = 8.447458405047655 | Resolution time = 0.0006057852879166603 | Resolution type = None
+Job 30: Waiting time = 8.251851595006883 | Resolution time = 0.000593169592320919 | Resolution type = None
+Job 31: Waiting time = 8.05782565381378 | Resolution time = 0.0005967291072010994 | Resolution type = None
+Job 32: Waiting time = 7.86986764613539 | Resolution time = 0.0006234142929315567 | Resolution type = None
+Job 33: Waiting time = 7.649497582577169 | Resolution time = 0.0006110938265919685 | Resolution type = None
+Job 34: Waiting time = 7.431508542969823 | Resolution time = 0.0005890261381864548 | Resolution type = None
+Job 35: Waiting time = 7.217155756428838 | Resolution time = 0.0006179455667734146 | Resolution type = None
+Job 36: Waiting time = 7.011018800549209 | Resolution time = 0.0006019547581672668 | Resolution type = None
+Job 37: Waiting time = 6.820775169879198 | Resolution time = 0.0005751242861151695 | Resolution type = None
+Job 38: Waiting time = 6.596982376649976 | Resolution time = 0.0006026336923241615 | Resolution type = None
+Job 39: Waiting time = 6.4150026720017195 | Resolution time = 0.0005936874076724052 | Resolution type = None
+Job 40: Waiting time = 6.202269155532122 | Resolution time = 0.0006614122539758682 | Resolution type = None
+Job 41: Waiting time = 5.992212134413421 | Resolution time = 0.00074817705899477 | Resolution type = None
+Job 42: Waiting time = 5.784416384994984 | Resolution time = 0.0005902126431465149 | Resolution type = None
+Job 43: Waiting time = 5.5754776783287525 | Resolution time = 0.000616702251136303 | Resolution type = None
+Job 44: Waiting time = 5.379720156081021 | Resolution time = 0.0005984893068671227 | Resolution type = None
+Job 45: Waiting time = 5.164878351613879 | Resolution time = 0.000563284382224083 | Resolution type = None
+Job 46: Waiting time = 4.986103842034936 | Resolution time = 0.0006626062095165253 | Resolution type = None
+Job 47: Waiting time = 4.791055426001549 | Resolution time = 0.0006222296506166458 | Resolution type = None
+Job 48: Waiting time = 4.607835161499679 | Resolution time = 0.0005765296518802643 | Resolution type = None
+Job 49: Waiting time = 4.413709117099643 | Resolution time = 0.0005670525133609772 | Resolution type = None
+Job 50: Waiting time = 4.229370107874274 | Resolution time = 0.0005652215331792831 | Resolution type = None
+Job 51: Waiting time = 4.026138906367123 | Resolution time = 0.0006049200892448425 | Resolution type = None
+Job 52: Waiting time = 3.8245172975584865 | Resolution time = 0.0006123092025518417 | Resolution type = None
+Job 53: Waiting time = 3.611592400819063 | Resolution time = 0.0005791876465082169 | Resolution type = None
+Job 54: Waiting time = 3.397497777827084 | Resolution time = 0.000615227036178112 | Resolution type = None
+Job 55: Waiting time = 3.199074043892324 | Resolution time = 0.0005790982395410538 | Resolution type = None
+Job 56: Waiting time = 2.9866964435204864 | Resolution time = 0.0005776714533567429 | Resolution type = None
+Job 57: Waiting time = 2.784814143553376 | Resolution time = 0.0005796803161501884 | Resolution type = None
+Job 58: Waiting time = 2.574744484387338 | Resolution time = 0.0006061680614948273 | Resolution type = None
+Job 59: Waiting time = 2.3954288829118013 | Resolution time = 0.0006336988881230354 | Resolution type = None
+Job 60: Waiting time = 2.1923419320955873 | Resolution time = 0.0006268303841352463 | Resolution type = None
+Job 61: Waiting time = 1.982255481183529 | Resolution time = 0.0006009778007864952 | Resolution type = None
+Job 62: Waiting time = 1.768634730949998 | Resolution time = 0.0005638804286718369 | Resolution type = None
+Job 63: Waiting time = 1.5664251139387488 | Resolution time = 0.0006101904436945915 | Resolution type = None
+Job 64: Waiting time = 1.3607372418045998 | Resolution time = 0.0006104959174990654 | Resolution type = None
+Job 65: Waiting time = 1.1577220242470503 | Resolution time = 0.0005626371130347252 | Resolution type = None
+Job 66: Waiting time = 0.9551637545228004 | Resolution time = 0.000720401294529438 | Resolution type = None
+Job 67: Waiting time = 0.748348755761981 | Resolution time = 0.0006761522963643074 | Resolution type = None
+Job 68: Waiting time = 0.5513542965054512 | Resolution time = 0.0005753887817263603 | Resolution type = None
+Job 69: Waiting time = 0.3404843229800463 | Resolution time = 0.0005731070414185524 | Resolution type = None
+Job 70: Waiting time = 0.14811901189386845 | Resolution time = 0.0005614031106233597 | Resolution type = None
+Normal period 2 ended!
+
+----- VACATION Started -----
+Start time: 14.43838432431221
+Duration: 10.244337229989469
+Jobs in the system: 50
+------ VACATION ENDED ------
+
+--- Normal Period 3 starts... ---
+Job 71: Waiting time = 10.179919578135014 | Resolution time = 0.0008116783574223518 | Resolution type = None
+Job 72: Waiting time = 9.981403216719627 | Resolution time = 0.0006178282201290131 | Resolution type = None
+Job 73: Waiting time = 9.757560933940113 | Resolution time = 0.0005897069349884987 | Resolution type = None
+Job 74: Waiting time = 9.550256688147783 | Resolution time = 0.0005824686959385872 | Resolution type = None
+Job 75: Waiting time = 9.359168796800077 | Resolution time = 0.0005295788869261742 | Resolution type = None
+Job 76: Waiting time = 9.139142487198114 | Resolution time = 0.0005521541461348534 | Resolution type = None
+Job 77: Waiting time = 8.956358265131712 | Resolution time = 0.0005543949082493782 | Resolution type = None
+Job 78: Waiting time = 8.765346717089415 | Resolution time = 0.0006191637367010117 | Resolution type = None
+Job 79: Waiting time = 8.58656480256468 | Resolution time = 0.0005718376487493515 | Resolution type = None
+Job 80: Waiting time = 8.395657196640968 | Resolution time = 0.0005601011216640472 | Resolution type = None
+Job 81: Waiting time = 8.182630278170109 | Resolution time = 0.0005143946036696434 | Resolution type = None
+Job 82: Waiting time = 7.959441438317299 | Resolution time = 0.0005481382831931114 | Resolution type = None
+Job 83: Waiting time = 7.742386081255972 | Resolution time = 0.0005601895973086357 | Resolution type = None
+Job 84: Waiting time = 7.536049712449312 | Resolution time = 0.0005186786875128746 | Resolution type = None
+Job 85: Waiting time = 7.31685499381274 | Resolution time = 0.0005810922011733055 | Resolution type = None
+Job 86: Waiting time = 7.129858093336225 | Resolution time = 0.0005952082574367523 | Resolution type = None
+Job 87: Waiting time = 6.938056242652237 | Resolution time = 0.00058771762996912 | Resolution type = None
+Job 88: Waiting time = 6.741856542415917 | Resolution time = 0.0005192812532186508 | Resolution type = None
+Job 89: Waiting time = 6.542458649724722 | Resolution time = 0.0005238912999629974 | Resolution type = None
+Job 90: Waiting time = 6.323494560085237 | Resolution time = 0.0005190568044781685 | Resolution type = None
+Job 91: Waiting time = 6.106421950273216 | Resolution time = 0.000514802522957325 | Resolution type = None
+Job 92: Waiting time = 5.893831456080079 | Resolution time = 0.0005645481869578362 | Resolution type = None
+Job 93: Waiting time = 5.66871718224138 | Resolution time = 0.0005426052957773209 | Resolution type = None
+Job 94: Waiting time = 5.470747563056648 | Resolution time = 0.0005757855251431465 | Resolution type = None
+Job 95: Waiting time = 5.255766081623733 | Resolution time = 0.0005089342594146729 | Resolution type = None
+Job 96: Waiting time = 5.0566627234220505 | Resolution time = 0.0005424739792943001 | Resolution type = None
+Job 97: Waiting time = 4.855121133849025 | Resolution time = 0.0005107000470161438 | Resolution type = None
+Job 98: Waiting time = 4.6495041605085135 | Resolution time = 0.0005258303135633469 | Resolution type = None
+Job 99: Waiting time = 4.405555198900402 | Resolution time = 0.0005729934200644493 | Resolution type = None
+Job 100: Waiting time = 4.206543014384806 | Resolution time = 0.0006698146462440491 | Resolution type = None
+Job 101: Waiting time = 3.987344928085804 | Resolution time = 0.0006060134619474411 | Resolution type = None
+Job 102: Waiting time = 3.7824029894545674 | Resolution time = 0.0005164481699466705 | Resolution type = None
+Job 103: Waiting time = 3.5945698469877243 | Resolution time = 0.000587773509323597 | Resolution type = None
+Job 104: Waiting time = 3.4084685062989593 | Resolution time = 0.0005262698978185654 | Resolution type = None
+Job 105: Waiting time = 3.2063667569309473 | Resolution time = 0.000620545819401741 | Resolution type = None
+Job 106: Waiting time = 2.9952518809586763 | Resolution time = 0.0006229812279343605 | Resolution type = None
+Job 107: Waiting time = 2.7874448392540216 | Resolution time = 0.0006224503740668297 | Resolution type = None
+Job 108: Waiting time = 2.583660362288356 | Resolution time = 0.0006493479013442993 | Resolution type = None
+Job 109: Waiting time = 2.399698776192963 | Resolution time = 0.0006464961916208267 | Resolution type = None
+Job 110: Waiting time = 2.1952360654249787 | Resolution time = 0.0005260175094008446 | Resolution type = None
+Job 111: Waiting time = 2.0021987594664097 | Resolution time = 0.0005209213122725487 | Resolution type = None
+Job 112: Waiting time = 1.806270987726748 | Resolution time = 0.0005595637485384941 | Resolution type = None
+Job 113: Waiting time = 1.612282333895564 | Resolution time = 0.0006124619394540787 | Resolution type = None
+Job 114: Waiting time = 1.3853087686002254 | Resolution time = 0.0005892915651202202 | Resolution type = None
+Job 115: Waiting time = 1.1732281167060137 | Resolution time = 0.0006042420864105225 | Resolution type = None
+Job 116: Waiting time = 0.9603129597380757 | Resolution time = 0.0005581555888056755 | Resolution type = None
+Job 117: Waiting time = 0.7782707987353206 | Resolution time = 0.0005428334698081017 | Resolution type = None
+Job 118: Waiting time = 0.5478215431794524 | Resolution time = 0.0005579302087426186 | Resolution type = None
+Job 119: Waiting time = 0.3637245874851942 | Resolution time = 0.0005452781915664673 | Resolution type = None
+Job 120: Waiting time = 0.16365434601902962 | Resolution time = 0.0005890829488635063 | Resolution type = None
+Normal period 3 ended!
+
+----- VACATION Started -----
+Start time: 24.71178886666894
+Duration: 10.472459807060659
+Jobs in the system: 52
+------ VACATION ENDED ------
+
+--- Normal Period 4 starts... ---
+Job 121: Waiting time = 10.436356578022242 | Resolution time = 0.0007559405639767647 | Resolution type = None
+Job 122: Waiting time = 10.226806840859354 | Resolution time = 0.000558147206902504 | Resolution type = None
+Job 123: Waiting time = 10.019879402592778 | Resolution time = 0.0005339449271559715 | Resolution type = None
+Job 124: Waiting time = 9.838916638866067 | Resolution time = 0.0005435310304164886 | Resolution type = None
+Job 125: Waiting time = 9.60445321071893 | Resolution time = 0.0005680322647094727 | Resolution type = None
+Job 126: Waiting time = 9.427040057256818 | Resolution time = 0.0006101904436945915 | Resolution type = None
+Job 127: Waiting time = 9.22006575576961 | Resolution time = 0.0006231740117073059 | Resolution type = None
+Job 128: Waiting time = 9.016285131685436 | Resolution time = 0.0005268212407827377 | Resolution type = None
+Job 129: Waiting time = 8.809082238003612 | Resolution time = 0.0005515431985259056 | Resolution type = None
+Job 130: Waiting time = 8.62400374095887 | Resolution time = 0.0005648639053106308 | Resolution type = None
+Job 131: Waiting time = 8.406847458332777 | Resolution time = 0.0005614478141069412 | Resolution type = None
+Job 132: Waiting time = 8.196485107764602 | Resolution time = 0.0006000902503728867 | Resolution type = None
+Job 133: Waiting time = 7.994700962677598 | Resolution time = 0.0006465408951044083 | Resolution type = None
+Job 134: Waiting time = 7.793609147891402 | Resolution time = 0.000614069402217865 | Resolution type = None
+Job 135: Waiting time = 7.587337031960487 | Resolution time = 0.0005234545096755028 | Resolution type = None
+Job 136: Waiting time = 7.369674182496965 | Resolution time = 0.0005475422367453575 | Resolution type = None
+Job 137: Waiting time = 7.172764940187335 | Resolution time = 0.0005693407729268074 | Resolution type = None
+Job 138: Waiting time = 6.954958260990679 | Resolution time = 0.000541110523045063 | Resolution type = None
+Job 139: Waiting time = 6.758804797194898 | Resolution time = 0.0005697030574083328 | Resolution type = None
+Job 140: Waiting time = 6.565688494592905 | Resolution time = 0.0005540689453482628 | Resolution type = None
+Job 141: Waiting time = 6.373689714819193 | Resolution time = 0.0005795815959572792 | Resolution type = None
+Job 142: Waiting time = 6.165543477982283 | Resolution time = 0.0005636941641569138 | Resolution type = None
+Job 143: Waiting time = 5.970725486986339 | Resolution time = 0.000540698878467083 | Resolution type = None
+Job 144: Waiting time = 5.782760729081929 | Resolution time = 0.0005363812670111656 | Resolution type = None
+Job 145: Waiting time = 5.5773014556616545 | Resolution time = 0.0005708849057555199 | Resolution type = None
+Job 146: Waiting time = 5.375664355233312 | Resolution time = 0.0005620894953608513 | Resolution type = None
+Job 147: Waiting time = 5.176782161928713 | Resolution time = 0.0005625700578093529 | Resolution type = None
+Job 148: Waiting time = 4.986341672949493 | Resolution time = 0.0006017619743943214 | Resolution type = None
+Job 149: Waiting time = 4.794340473599732 | Resolution time = 0.0005556466057896614 | Resolution type = None
+Job 150: Waiting time = 4.578564654104412 | Resolution time = 0.0005662040784955025 | Resolution type = None
+Job 151: Waiting time = 4.384008593857288 | Resolution time = 0.0005295155569911003 | Resolution type = None
+Job 152: Waiting time = 4.174065261147916 | Resolution time = 0.000553913414478302 | Resolution type = None
+Job 153: Waiting time = 3.9734848365187645 | Resolution time = 0.0005898661911487579 | Resolution type = None
+Job 154: Waiting time = 3.802516136318445 | Resolution time = 0.0006027054041624069 | Resolution type = None
+Job 155: Waiting time = 3.5963257178664207 | Resolution time = 0.0005691451951861382 | Resolution type = None
+Job 156: Waiting time = 3.400348661467433 | Resolution time = 0.0005457215011119843 | Resolution type = None
+Job 157: Waiting time = 3.206770785152912 | Resolution time = 0.0005610520020127296 | Resolution type = None
+Job 158: Waiting time = 2.9978050803765655 | Resolution time = 0.0005375351756811142 | Resolution type = None
+Job 159: Waiting time = 2.810745866037905 | Resolution time = 0.0005513662472367287 | Resolution type = None
+Job 160: Waiting time = 2.597962529398501 | Resolution time = 0.0005843490362167358 | Resolution type = None
+Job 161: Waiting time = 2.39790827780962 | Resolution time = 0.0006069131195545197 | Resolution type = None
+Job 162: Waiting time = 2.181755281984806 | Resolution time = 0.0005726506933569908 | Resolution type = None
+Job 163: Waiting time = 1.993831924162805 | Resolution time = 0.0005294354632496834 | Resolution type = None
+Job 164: Waiting time = 1.7868154039606452 | Resolution time = 0.0005624061450362206 | Resolution type = None
+Job 165: Waiting time = 1.5899090599268675 | Resolution time = 0.0005386443808674812 | Resolution type = None
+Job 166: Waiting time = 1.3709882870316505 | Resolution time = 0.0005520405247807503 | Resolution type = None
+Job 167: Waiting time = 1.175878381356597 | Resolution time = 0.000551844947040081 | Resolution type = None
+Job 168: Waiting time = 0.9778358237817883 | Resolution time = 0.0005984175950288773 | Resolution type = None
+Job 169: Waiting time = 0.8068011626601219 | Resolution time = 0.0005742693319916725 | Resolution type = None
+Job 170: Waiting time = 0.6252087019383907 | Resolution time = 0.0005710935220122337 | Resolution type = None
+Job 171: Waiting time = 0.40515191946178675 | Resolution time = 0.0005642138421535492 | Resolution type = None
+Job 172: Waiting time = 0.22549807652831078 | Resolution time = 0.0006066281348466873 | Resolution type = None
+Normal period 4 ended!
+
+----- VACATION Started -----
+Start time: 35.214351437054574
+Duration: 10.340251041576266
+Jobs in the system: 52
+------ VACATION ENDED ------
+
+--- Normal Period 5 starts... ---
+Job 173: Waiting time = 10.340281324461102 | Resolution time = 0.0008904747664928436 | Resolution type = None
+Job 174: Waiting time = 10.119374117814004 | Resolution time = 0.0006626732647418976 | Resolution type = None
+Job 175: Waiting time = 9.919435908086598 | Resolution time = 0.0006301933899521828 | Resolution type = None
+Job 176: Waiting time = 9.72458367049694 | Resolution time = 0.0005673188716173172 | Resolution type = None
+Job 177: Waiting time = 9.541515979915857 | Resolution time = 0.000523972325026989 | Resolution type = None
+Job 178: Waiting time = 9.32774347718805 | Resolution time = 0.0005692942067980766 | Resolution type = None
+Job 179: Waiting time = 9.143670218065381 | Resolution time = 0.0005594780668616295 | Resolution type = None
+Job 180: Waiting time = 8.934021124616265 | Resolution time = 0.0006209211423993111 | Resolution type = None
+Job 181: Waiting time = 8.724931838922203 | Resolution time = 0.0006174100562930107 | Resolution type = None
+Job 182: Waiting time = 8.521718954667449 | Resolution time = 0.000605359673500061 | Resolution type = None
+Job 183: Waiting time = 8.332596568390727 | Resolution time = 0.0005414951592683792 | Resolution type = None
+Job 184: Waiting time = 8.148607349023223 | Resolution time = 0.0005186963826417923 | Resolution type = None
+Job 185: Waiting time = 7.8970975913107395 | Resolution time = 0.0005696127191185951 | Resolution type = None
+Job 186: Waiting time = 7.710823706351221 | Resolution time = 0.0005161315202713013 | Resolution type = None
+Job 187: Waiting time = 7.512751679867506 | Resolution time = 0.0005918750539422035 | Resolution type = None
+Job 188: Waiting time = 7.3124494990333915 | Resolution time = 0.0005814004689455032 | Resolution type = None
+Job 189: Waiting time = 7.111581762321293 | Resolution time = 0.0005796020850539207 | Resolution type = None
+Job 190: Waiting time = 6.91748807951808 | Resolution time = 0.0005688806995749474 | Resolution type = None
+Job 191: Waiting time = 6.706507442519069 | Resolution time = 0.0005384236574172974 | Resolution type = None
+Job 192: Waiting time = 6.500385287217796 | Resolution time = 0.0005214717239141464 | Resolution type = None
+Job 193: Waiting time = 6.285260784439743 | Resolution time = 0.0005559166893362999 | Resolution type = None
+Job 194: Waiting time = 6.075828060507774 | Resolution time = 0.0005840659141540527 | Resolution type = None
+Job 195: Waiting time = 5.867798893712461 | Resolution time = 0.0005934108048677444 | Resolution type = None
+Job 196: Waiting time = 5.64012682903558 | Resolution time = 0.0005437396466732025 | Resolution type = None
+Job 197: Waiting time = 5.436872388236225 | Resolution time = 0.0005328105762600899 | Resolution type = None
+Job 198: Waiting time = 5.230591580271721 | Resolution time = 0.0005209194496273994 | Resolution type = None
+Job 199: Waiting time = 5.030705450102687 | Resolution time = 0.0005244305357336998 | Resolution type = None
+Job 200: Waiting time = 4.8294752687215805 | Resolution time = 0.000521000474691391 | Resolution type = None
+Job 201: Waiting time = 4.647530970163643 | Resolution time = 0.0006175031885504723 | Resolution type = None
+Job 202: Waiting time = 4.441513287834823 | Resolution time = 0.0006126714870333672 | Resolution type = None
+Job 203: Waiting time = 4.245619596913457 | Resolution time = 0.0005739014595746994 | Resolution type = None
+Job 204: Waiting time = 4.033560029231012 | Resolution time = 0.0005624173209071159 | Resolution type = None
+Job 205: Waiting time = 3.8451029174029827 | Resolution time = 0.0005669724196195602 | Resolution type = None
+Job 206: Waiting time = 3.642934967763722 | Resolution time = 0.0005265539512038231 | Resolution type = None
+Job 207: Waiting time = 3.4297890374436975 | Resolution time = 0.0005370881408452988 | Resolution type = None
+Job 208: Waiting time = 3.2327852230519056 | Resolution time = 0.0005837734788656235 | Resolution type = None
+Job 209: Waiting time = 3.0373211903497577 | Resolution time = 0.0005810903385281563 | Resolution type = None
+Job 210: Waiting time = 2.8249903209507465 | Resolution time = 0.00061777513474226 | Resolution type = None
+Job 211: Waiting time = 2.6348387114703655 | Resolution time = 0.0005426369607448578 | Resolution type = None
+Job 212: Waiting time = 2.4539354788139462 | Resolution time = 0.0005225818604230881 | Resolution type = None
+Job 213: Waiting time = 2.25977767072618 | Resolution time = 0.0005158726125955582 | Resolution type = None
+Job 214: Waiting time = 2.0541775869205594 | Resolution time = 0.0005481736734509468 | Resolution type = None
+Job 215: Waiting time = 1.8661796422675252 | Resolution time = 0.0006209155544638634 | Resolution type = None
+Job 216: Waiting time = 1.6820155400782824 | Resolution time = 0.0005813231691718102 | Resolution type = None
+Job 217: Waiting time = 1.4970063529908657 | Resolution time = 0.0005689747631549835 | Resolution type = None
+Job 218: Waiting time = 1.2971111349761486 | Resolution time = 0.0005582692101597786 | Resolution type = None
+Job 219: Waiting time = 1.0855301786214113 | Resolution time = 0.0005388548597693443 | Resolution type = None
+Job 220: Waiting time = 0.904410945251584 | Resolution time = 0.0005517229437828064 | Resolution type = None
+Job 221: Waiting time = 0.6870866734534502 | Resolution time = 0.0005317460745573044 | Resolution type = None
+Job 222: Waiting time = 0.47618777211755514 | Resolution time = 0.0005953367799520493 | Resolution type = None
+Job 223: Waiting time = 0.29151966981589794 | Resolution time = 0.000580853782594204 | Resolution type = None
+Job 224: Waiting time = 0.10265313275158405 | Resolution time = 0.0005890782922506332 | Resolution type = None
+Normal period 5 ended!
+
+----- VACATION Started -----
+Start time: 45.58482090756297
+Duration: 10.304079526104033
+Jobs in the system: 51
+------ VACATION ENDED ------
+

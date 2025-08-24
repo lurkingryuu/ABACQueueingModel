@@ -2,8 +2,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 from pathlib import Path
-from parser_data import stats_parser
+from parser_data import stats_parser, access_res_times_per_vacation
 import re
+from pprint import pprint
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,7 +41,7 @@ def getplots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_string='Init
     
     parameter_repeated = parameter * 4  # Repeat parameter values for 4 configurations
     dic_ART = {
-        'Avg. Resolution Time (in msec)': data_ART,
+        'Avg. Resolution Time (in msec)': [ 1000 * time for time in data_ART ],
         'Configurations': configurations,
         param_string: parameter_repeated
     }
@@ -188,7 +189,7 @@ def plot_line_plots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_strin
     
     parameter_repeated = parameter * 4
     dic_ART = {
-        'Avg. Resolution Time (in msec)': data_ART,
+        'Avg. Resolution Time (in msec)': [1000 * time for time in data_ART],
         'Configurations': configurations,
         param_string: parameter_repeated
     }
@@ -239,6 +240,8 @@ def plot_line_plots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_strin
         axs[i].set_ylabel(y_labels[i])
         axs[i].tick_params(axis='both')
         axs[i].set_xticks(parameter)
+        if i == 3 and param_string == 'attributes':
+            axs[i].set_yticks([(14 + i/2) for i in range(0, 6)])
         axs[i].grid(True, linestyle='--', alpha=0.5)
 
         if i == 0:
@@ -305,6 +308,20 @@ def plot_box_plots(data_RT, data_NAR, data_IVT, data_VD, parameter, param_string
     plt.close(fig)
 
 
+def plot_bar_for_access_res_times(avg_access_res_times):
+    avg_access_res_times = [1000 * time for time in avg_access_res_times]
+    sns.set_theme(style="ticks")
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.barplot(x=[f"V{i+1}" for i in range(len(avg_access_res_times))], y=avg_access_res_times, ax=ax, palette='viridis')
+    # ax.set_title("Average Access Resolution Times for Each Resource") 
+    ax.set_xlabel("Vacations")
+    ax.set_ylabel("Access Resolution Time (in msec)")
+    ax.grid(True, linestyle='--', alpha=0.5)
+    plt.tight_layout()
+    plt.savefig(PLOTS_DIR / 'bar_plot_access_res_times.png')
+    plt.close(fig)
+    
+
 def get_avg_inter_vacation_time(vac_start_time, vac_durations):
     inter_vacation_time = []
     for i in range(1, len(vac_start_time)):
@@ -326,7 +343,7 @@ VARIANT_CONFIGS = {
     "policy_size": [100, 300, 600, 1000],
 }
 
-STATS_TITLES = ['res_time', 'inter_vac_duration', 'no_of_jobs', 'vac_duration']
+STATS_TITLES = ['res_time', 'inter_vac_duration', 'no_of_jobs', 'vac_duration', 'access_res_times']
 
 
 store = { key: { avgkey: {} for avgkey in STATS_TITLES } for key in VARIANT_CONFIGS.keys() }
@@ -349,6 +366,11 @@ for file in ALL_EXPERIMENTS_HISTORY_DIR.glob('*.txt'):
         store[variant]['no_of_jobs'][key_name].append(avg_no_of_jobs)
         store[variant]['vac_duration'][key_name].append(avg_vac_duration)
         
+        access_res_times = access_res_times_per_vacation(file)
+        # print(f"Access Res Times: {access_res_times}")
+        access_res_times = [sum(sublist) / len(sublist) if len(sublist) > 0 else 0 for sublist in access_res_times]
+        store[variant]['access_res_times'][key_name].append(access_res_times)
+
 keys = list(store['al_update_rate']['res_time'].keys())
 keys.sort()
 print(f"Keys: {keys}")
@@ -366,8 +388,22 @@ def plot_param(param: str, modes: list = ['line', 'box']):
 
 
 if __name__ == "__main__":
-    plot_param('al_update_rate', ['line'])
-    plot_param('arrival_rate', ['box'])
+    # plot_param('al_update_rate', ['line'])
+    # plot_param('arrival_rate', ['box'])
     plot_param('attributes', ['line'])
-    plot_param('policy_size', ['line'])
-    print("Done")
+    # plot_param('policy_size', ['line'])
+    
+    
+    
+    
+    # access_res_times = (store['arrival_rate']['access_res_times']['c1_v1'])
+    # avg_access_res_times = [0 for _ in range(len(access_res_times[0]))]
+    # for exp in access_res_times:
+    #     for i in range(len(exp)):
+    #         avg_access_res_times[i] += exp[i]
+    # avg_access_res_times = [time / len(access_res_times) for time in avg_access_res_times]
+    # print(f"Access Res Times: {avg_access_res_times}")
+    # plot_bar_for_access_res_times(avg_access_res_times)
+    
+    
+    # print("Done")

@@ -1,0 +1,125 @@
+[Client] INFO: ----------------- Client started at 2024-10-14 03:06:15 -----------------
+[Client] INFO: Arguments: Namespace(arrival_rate=80)
+[Client] INFO: Current directory: /Users/karthik/work/btp/not_btp/myfork/runner
+[Client] INFO: ---------------------------------- Client Side ----------------------------------
+[Client] ERROR: Server not available. Retrying...
+[Client] INFO: Server Connection successful!
+[Client] DEBUG: user attribute-values: {'URQCB': ['ljeq', 'tto', 'anz', 'eivi', 'xlvd', 'ezsjc'], 'BYGLAPH': ['yaona', 'kiooy', 'gtitq', 'krgs', 'epln', 'pcfb'], 'QGR': ['pdas', 'xfc', 'bteg', 'fcfsk', 'ehpxe', 'bdfz'], 'TQDMXZ': ['cma', 'ivjsf', 'rloi', 'syl', 'xxlbd', 'kcj'], 'ZBHX': ['szr', 'uupvd', 'jfe', 'oql', 'ooqq', 'rae'], 'XBPJKYC': ['laslq', 'rxeq', 'dbijh', 'evq', 'ksz', 'uwl']}
+[Client] DEBUG: object attribute-values: {'HHXLPZT': ['hni', 'zte', 'knteo', 'lggb', 'kerf', 'cbj'], 'OQBD': ['ion', 'mkw', 'qihk', 'vrk', 'psns', 'kdz'], 'VZRTKI': ['rjl', 'ykqc', 'jzb', 'ilhoh', 'anqs', 'iaba'], 'USRGRJN': ['omfhj', 'jyma', 'zeb', 'kakn', 'guld', 'jpd'], 'YZSF': ['qnd', 'lefpb', 'opa', 'dtz', 'byu', 'narv'], 'CHLYK': ['tlcn', 'spxr', 'oekaj', 'ewhvz', 'vyx', 'drx']}
+[Client] DEBUG: Received policy succesfully!
+[Client] DEBUG: Received auxiliary list successfully!
+[Client] DEBUG: Fixed auxlist Access request 0 denied
+[Client] DEBUG: Fixed auxlist Access request 1 denied
+[Client] DEBUG: Fixed auxlist Access request 2 denied
+[Client] DEBUG: Fixed auxlist Access request 3 denied
+[Client] DEBUG: Fixed auxlist Access request 4 denied
+[Client] DEBUG: Fixed auxlist Access request 5 denied
+[Client] DEBUG: Fixed auxlist Access request 6 denied
+[Client] DEBUG: Fixed auxlist Access request 7 denied
+[Client] DEBUG: Fixed auxlist Access request 8 denied
+[Client] DEBUG: Fixed auxlist Access request 9 denied
+[Client] DEBUG: Fixed auxlist Access request 10 denied
+[Client] DEBUG: Objects received successfully !
+[Client] DEBUG: Starting the sending of access requests with arrival rate: 80
+[Client] INFO: Server message received: 
+[Client] INFO: Server closed connection
+[Client] INFO: Total access requests sent: 1128
+[Client] INFO: Requests per mode: 
+[Client] INFO: Random: 333
+[Client] INFO: Policy: 464
+[Client] INFO: Auxiliary: 331
+[Client] INFO: Client closing connection...
+See ya!!!!!!
+
+[Client] INFO: ----------------- Client started at 2024-10-14 03:06:33 -----------------
+[Client] INFO: Arguments: Namespace(arrival_rate=80)
+[Client] INFO: Current directory: /Users/karthik/work/btp/not_btp/myfork/runner
+[Client] INFO: ---------------------------------- Client Side ----------------------------------
+[Client] INFO: Server Connection successful!
+[Client] DEBUG: user attribute-values: {'URQCB': ['ljeq', 'tto', 'anz', 'eivi', 'xlvd', 'ezsjc'], 'BYGLAPH': ['yaona', 'kiooy', 'gtitq', 'krgs', 'epln', 'pcfb'], 'QGR': ['pdas', 'xfc', 'bteg', 'fcfsk', 'ehpxe', 'bdfz'], 'TQDMXZ': ['cma', 'ivjsf', 'rloi', 'syl', 'xxlbd', 'kcj'], 'ZBHX': ['szr', 'uupvd', 'jfe', 'oql', 'ooqq', 'rae'], 'XBPJKYC': ['laslq', 'rxeq', 'dbijh', 'evq', 'ksz', 'uwl']}
+[Client] DEBUG: object attribute-values: {'HHXLPZT': ['hni', 'zte', 'knteo', 'lggb', 'kerf', 'cbj'], 'OQBD': ['ion', 'mkw', 'qihk', 'vrk', 'psns', 'kdz'], 'VZRTKI': ['rjl', 'ykqc', 'jzb', 'ilhoh', 'anqs', 'iaba'], 'USRGRJN': ['omfhj', 'jyma', 'zeb', 'kakn', 'guld', 'jpd'], 'YZSF': ['qnd', 'lefpb', 'opa', 'dtz', 'byu', 'narv'], 'CHLYK': ['tlcn', 'spxr', 'oekaj', 'ewhvz', 'vyx', 'drx']}
+[Client] DEBUG: Received policy succesfully!
+[Client] DEBUG: Received auxiliary list successfully!
+[Client] DEBUG: Fixed auxlist Access request 0 denied
+[Client] DEBUG: Fixed auxlist Access request 1 denied
+[Client] DEBUG: Fixed auxlist Access request 2 denied
+[Client] DEBUG: Fixed auxlist Access request 3 denied
+[Client] DEBUG: Fixed auxlist Access request 4 denied
+[Client] DEBUG: Fixed auxlist Access request 5 denied
+[Client] DEBUG: Fixed auxlist Access request 6 denied
+[Client] DEBUG: Fixed auxlist Access request 7 denied
+[Client] DEBUG: Fixed auxlist Access request 8 denied
+[Client] DEBUG: Fixed auxlist Access request 9 denied
+[Client] DEBUG: Fixed auxlist Access request 10 denied
+[Client] DEBUG: Objects received successfully !
+[Client] DEBUG: Starting the sending of access requests with arrival rate: 80
+[Client] INFO: Server message received: 
+[Client] INFO: Server closed connection
+[Client] INFO: Total access requests sent: 1104
+[Client] INFO: Requests per mode: 
+[Client] INFO: Random: 314
+[Client] INFO: Policy: 423
+[Client] INFO: Auxiliary: 367
+[Client] INFO: Client closing connection...
+See ya!!!!!!
+
+[Client] INFO: ----------------- Client started at 2024-10-14 03:06:51 -----------------
+[Client] INFO: Arguments: Namespace(arrival_rate=80)
+[Client] INFO: Current directory: /Users/karthik/work/btp/not_btp/myfork/runner
+[Client] INFO: ---------------------------------- Client Side ----------------------------------
+[Client] ERROR: Server not available. Retrying...
+[Client] INFO: Server Connection successful!
+[Client] DEBUG: user attribute-values: {'URQCB': ['ljeq', 'tto', 'anz', 'eivi', 'xlvd', 'ezsjc'], 'BYGLAPH': ['yaona', 'kiooy', 'gtitq', 'krgs', 'epln', 'pcfb'], 'QGR': ['pdas', 'xfc', 'bteg', 'fcfsk', 'ehpxe', 'bdfz'], 'TQDMXZ': ['cma', 'ivjsf', 'rloi', 'syl', 'xxlbd', 'kcj'], 'ZBHX': ['szr', 'uupvd', 'jfe', 'oql', 'ooqq', 'rae'], 'XBPJKYC': ['laslq', 'rxeq', 'dbijh', 'evq', 'ksz', 'uwl']}
+[Client] DEBUG: object attribute-values: {'HHXLPZT': ['hni', 'zte', 'knteo', 'lggb', 'kerf', 'cbj'], 'OQBD': ['ion', 'mkw', 'qihk', 'vrk', 'psns', 'kdz'], 'VZRTKI': ['rjl', 'ykqc', 'jzb', 'ilhoh', 'anqs', 'iaba'], 'USRGRJN': ['omfhj', 'jyma', 'zeb', 'kakn', 'guld', 'jpd'], 'YZSF': ['qnd', 'lefpb', 'opa', 'dtz', 'byu', 'narv'], 'CHLYK': ['tlcn', 'spxr', 'oekaj', 'ewhvz', 'vyx', 'drx']}
+[Client] DEBUG: Received policy succesfully!
+[Client] DEBUG: Received auxiliary list successfully!
+[Client] DEBUG: Fixed auxlist Access request 0 denied
+[Client] DEBUG: Fixed auxlist Access request 1 denied
+[Client] DEBUG: Fixed auxlist Access request 2 denied
+[Client] DEBUG: Fixed auxlist Access request 3 denied
+[Client] DEBUG: Fixed auxlist Access request 4 denied
+[Client] DEBUG: Fixed auxlist Access request 5 denied
+[Client] DEBUG: Fixed auxlist Access request 6 denied
+[Client] DEBUG: Fixed auxlist Access request 7 denied
+[Client] DEBUG: Fixed auxlist Access request 8 denied
+[Client] DEBUG: Fixed auxlist Access request 9 denied
+[Client] DEBUG: Fixed auxlist Access request 10 denied
+[Client] DEBUG: Objects received successfully !
+[Client] DEBUG: Starting the sending of access requests with arrival rate: 80
+[Client] INFO: Server message received: 
+[Client] INFO: Server closed connection
+[Client] INFO: Total access requests sent: 1126
+[Client] INFO: Requests per mode: 
+[Client] INFO: Random: 315
+[Client] INFO: Policy: 466
+[Client] INFO: Auxiliary: 345
+[Client] INFO: Client closing connection...
+See ya!!!!!!
+
+[Client] INFO: ----------------- Client started at 2024-10-14 03:07:09 -----------------
+[Client] INFO: Arguments: Namespace(arrival_rate=80)
+[Client] INFO: Current directory: /Users/karthik/work/btp/not_btp/myfork/runner
+[Client] INFO: ---------------------------------- Client Side ----------------------------------
+[Client] ERROR: Server not available. Retrying...
+[Client] INFO: Server Connection successful!
+[Client] DEBUG: user attribute-values: {'URQCB': ['ljeq', 'tto', 'anz', 'eivi', 'xlvd', 'ezsjc'], 'BYGLAPH': ['yaona', 'kiooy', 'gtitq', 'krgs', 'epln', 'pcfb'], 'QGR': ['pdas', 'xfc', 'bteg', 'fcfsk', 'ehpxe', 'bdfz'], 'TQDMXZ': ['cma', 'ivjsf', 'rloi', 'syl', 'xxlbd', 'kcj'], 'ZBHX': ['szr', 'uupvd', 'jfe', 'oql', 'ooqq', 'rae'], 'XBPJKYC': ['laslq', 'rxeq', 'dbijh', 'evq', 'ksz', 'uwl']}
+[Client] DEBUG: object attribute-values: {'HHXLPZT': ['hni', 'zte', 'knteo', 'lggb', 'kerf', 'cbj'], 'OQBD': ['ion', 'mkw', 'qihk', 'vrk', 'psns', 'kdz'], 'VZRTKI': ['rjl', 'ykqc', 'jzb', 'ilhoh', 'anqs', 'iaba'], 'USRGRJN': ['omfhj', 'jyma', 'zeb', 'kakn', 'guld', 'jpd'], 'YZSF': ['qnd', 'lefpb', 'opa', 'dtz', 'byu', 'narv'], 'CHLYK': ['tlcn', 'spxr', 'oekaj', 'ewhvz', 'vyx', 'drx']}
+[Client] DEBUG: Received policy succesfully!
+[Client] DEBUG: Received auxiliary list successfully!
+[Client] DEBUG: Fixed auxlist Access request 0 denied
+[Client] DEBUG: Fixed auxlist Access request 1 denied
+[Client] DEBUG: Fixed auxlist Access request 2 denied
+[Client] DEBUG: Fixed auxlist Access request 3 denied
+[Client] DEBUG: Fixed auxlist Access request 4 denied
+[Client] DEBUG: Fixed auxlist Access request 5 denied
+[Client] DEBUG: Fixed auxlist Access request 6 denied
+[Client] DEBUG: Fixed auxlist Access request 7 denied
+[Client] DEBUG: Fixed auxlist Access request 8 denied
+[Client] DEBUG: Fixed auxlist Access request 9 denied
+[Client] DEBUG: Fixed auxlist Access request 10 denied
+[Client] DEBUG: Objects received successfully !
+[Client] DEBUG: Starting the sending of access requests with arrival rate: 80
+[Client] INFO: Exiting...
+[Client] INFO: Client closing connection...
+See ya!!!!!!
+

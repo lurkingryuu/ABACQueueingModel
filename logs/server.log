@@ -1,0 +1,226 @@
+[Server] INFO: ----------------- Server started at 2024-10-14 03:06:15 -----------------
+[Server] INFO: Arguments: Namespace(al_update_rate=2, max_aux_list_len=100, max_access_requests=64, max_no_of_vacations=6, policy_resolution=1, vacation_model=1)
+[Server] INFO: Current directory: /Users/karthik/work/btp/not_btp/myfork/client-server-model/server
+[Server] DEBUG: user attribute-values: {'URQCB': ['ljeq', 'tto', 'anz', 'eivi', 'xlvd', 'ezsjc'], 'BYGLAPH': ['yaona', 'kiooy', 'gtitq', 'krgs', 'epln', 'pcfb'], 'QGR': ['pdas', 'xfc', 'bteg', 'fcfsk', 'ehpxe', 'bdfz'], 'TQDMXZ': ['cma', 'ivjsf', 'rloi', 'syl', 'xxlbd', 'kcj'], 'ZBHX': ['szr', 'uupvd', 'jfe', 'oql', 'ooqq', 'rae'], 'XBPJKYC': ['laslq', 'rxeq', 'dbijh', 'evq', 'ksz', 'uwl']}
+[Server] DEBUG: object attribute-values: {'HHXLPZT': ['hni', 'zte', 'knteo', 'lggb', 'kerf', 'cbj'], 'OQBD': ['ion', 'mkw', 'qihk', 'vrk', 'psns', 'kdz'], 'VZRTKI': ['rjl', 'ykqc', 'jzb', 'ilhoh', 'anqs', 'iaba'], 'USRGRJN': ['omfhj', 'jyma', 'zeb', 'kakn', 'guld', 'jpd'], 'YZSF': ['qnd', 'lefpb', 'opa', 'dtz', 'byu', 'narv'], 'CHLYK': ['tlcn', 'spxr', 'oekaj', 'ewhvz', 'vyx', 'drx']}
+[Server] DEBUG: Auxiliary List: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Init process over !
+
+[Server] INFO: +++++++++++++++++++++++++++++++++++++++++++++ Server Side +++++++++++++++++++++++++++++++++++++++++++++
+[Server] INFO: [ -- LISTENING -- ] Server is listening on 127.0.0.1:8080...
+[Server] INFO: Vacation Model: ACCESS_QUEUE
+[Server] INFO: Max Aux List Length per Vacation: 100
+[Server] INFO: Max Access Requests per Vacation: 64
+[Server] INFO: Max Number of Vacations: 6
+[Server] INFO: Auxiliary List Update Rate: 2
+[Server] INFO: Policy Resolution: LINEAR
+[Server] INFO: Waiting for a connection...
+[Server] DEBUG: Main hello world! This works as well!
+[Server] INFO: 127.0.0.1:64996 has connected.
+[Server] DEBUG: Time elapsed: 3.0000000419968273
+[Server] DEBUG: Number of access requests served: 205
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 1019 | Combined: = 1025
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 6.1229512080026325
+[Server] DEBUG: Number of access requests served: 206
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 51
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 8.825388291996205
+[Server] DEBUG: Number of access requests served: 173
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 51
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 11.491188042011345
+[Server] DEBUG: Number of access requests served: 173
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 50
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 14.323162207991118
+[Server] DEBUG: Number of access requests served: 193
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 51
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] INFO: Handling clients must be stopped!
+[Server] INFO: Stopped access request resolution
+[Server] INFO: Connection closed on server side!
+
+[Server] INFO: Done accepting clients
+[Server] INFO: Stopped auxiliary list updates
+[Server] INFO: No. of access requests resolved by: 
+[Server] INFO: Policy: 78
+[Server] INFO: Auxiliary List: 0
+[Server] INFO: None: 872
+[Server] INFO: Total: 950
+[Server] INFO: Exiting...
+[Server] INFO: ----------------- Server started at 2024-10-14 03:06:33 -----------------
+[Server] INFO: Arguments: Namespace(al_update_rate=2, max_aux_list_len=100, max_access_requests=64, max_no_of_vacations=6, policy_resolution=1, vacation_model=1)
+[Server] INFO: Current directory: /Users/karthik/work/btp/not_btp/myfork/client-server-model/server
+[Server] DEBUG: user attribute-values: {'URQCB': ['ljeq', 'tto', 'anz', 'eivi', 'xlvd', 'ezsjc'], 'BYGLAPH': ['yaona', 'kiooy', 'gtitq', 'krgs', 'epln', 'pcfb'], 'QGR': ['pdas', 'xfc', 'bteg', 'fcfsk', 'ehpxe', 'bdfz'], 'TQDMXZ': ['cma', 'ivjsf', 'rloi', 'syl', 'xxlbd', 'kcj'], 'ZBHX': ['szr', 'uupvd', 'jfe', 'oql', 'ooqq', 'rae'], 'XBPJKYC': ['laslq', 'rxeq', 'dbijh', 'evq', 'ksz', 'uwl']}
+[Server] DEBUG: object attribute-values: {'HHXLPZT': ['hni', 'zte', 'knteo', 'lggb', 'kerf', 'cbj'], 'OQBD': ['ion', 'mkw', 'qihk', 'vrk', 'psns', 'kdz'], 'VZRTKI': ['rjl', 'ykqc', 'jzb', 'ilhoh', 'anqs', 'iaba'], 'USRGRJN': ['omfhj', 'jyma', 'zeb', 'kakn', 'guld', 'jpd'], 'YZSF': ['qnd', 'lefpb', 'opa', 'dtz', 'byu', 'narv'], 'CHLYK': ['tlcn', 'spxr', 'oekaj', 'ewhvz', 'vyx', 'drx']}
+[Server] DEBUG: Auxiliary List: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Init process over !
+
+[Server] INFO: +++++++++++++++++++++++++++++++++++++++++++++ Server Side +++++++++++++++++++++++++++++++++++++++++++++
+[Server] INFO: [ -- LISTENING -- ] Server is listening on 127.0.0.1:8080...
+[Server] INFO: Vacation Model: ACCESS_QUEUE
+[Server] INFO: Max Aux List Length per Vacation: 100
+[Server] INFO: Max Access Requests per Vacation: 64
+[Server] INFO: Max Number of Vacations: 6
+[Server] INFO: Auxiliary List Update Rate: 2
+[Server] INFO: Policy Resolution: LINEAR
+[Server] INFO: Waiting for a connection...
+[Server] DEBUG: Main hello world! This works as well!
+[Server] INFO: 127.0.0.1:65015 has connected.
+[Server] DEBUG: Time elapsed: 3.000000166008249
+[Server] DEBUG: Number of access requests served: 198
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 1019 | Combined: = 1026
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 5.931426583003486
+[Server] DEBUG: Number of access requests served: 196
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 51
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 8.686154708004324
+[Server] DEBUG: Number of access requests served: 176
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 50
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 11.4693299580249
+[Server] DEBUG: Number of access requests served: 177
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 51
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 14.210130166000454
+[Server] DEBUG: Number of access requests served: 176
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 51
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] INFO: Handling clients must be stopped!
+[Server] INFO: Stopped access request resolution
+[Server] INFO: Connection closed on server side!
+
+[Server] INFO: Done accepting clients
+[Server] INFO: Stopped auxiliary list updates
+[Server] INFO: No. of access requests resolved by: 
+[Server] INFO: Policy: 70
+[Server] INFO: Auxiliary List: 0
+[Server] INFO: None: 853
+[Server] INFO: Total: 923
+[Server] INFO: Exiting...
+[Server] INFO: ----------------- Server started at 2024-10-14 03:06:51 -----------------
+[Server] INFO: Arguments: Namespace(al_update_rate=2, max_aux_list_len=100, max_access_requests=64, max_no_of_vacations=6, policy_resolution=1, vacation_model=1)
+[Server] INFO: Current directory: /Users/karthik/work/btp/not_btp/myfork/client-server-model/server
+[Server] DEBUG: user attribute-values: {'URQCB': ['ljeq', 'tto', 'anz', 'eivi', 'xlvd', 'ezsjc'], 'BYGLAPH': ['yaona', 'kiooy', 'gtitq', 'krgs', 'epln', 'pcfb'], 'QGR': ['pdas', 'xfc', 'bteg', 'fcfsk', 'ehpxe', 'bdfz'], 'TQDMXZ': ['cma', 'ivjsf', 'rloi', 'syl', 'xxlbd', 'kcj'], 'ZBHX': ['szr', 'uupvd', 'jfe', 'oql', 'ooqq', 'rae'], 'XBPJKYC': ['laslq', 'rxeq', 'dbijh', 'evq', 'ksz', 'uwl']}
+[Server] DEBUG: object attribute-values: {'HHXLPZT': ['hni', 'zte', 'knteo', 'lggb', 'kerf', 'cbj'], 'OQBD': ['ion', 'mkw', 'qihk', 'vrk', 'psns', 'kdz'], 'VZRTKI': ['rjl', 'ykqc', 'jzb', 'ilhoh', 'anqs', 'iaba'], 'USRGRJN': ['omfhj', 'jyma', 'zeb', 'kakn', 'guld', 'jpd'], 'YZSF': ['qnd', 'lefpb', 'opa', 'dtz', 'byu', 'narv'], 'CHLYK': ['tlcn', 'spxr', 'oekaj', 'ewhvz', 'vyx', 'drx']}
+[Server] DEBUG: Auxiliary List: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Init process over !
+
+[Server] INFO: +++++++++++++++++++++++++++++++++++++++++++++ Server Side +++++++++++++++++++++++++++++++++++++++++++++
+[Server] INFO: [ -- LISTENING -- ] Server is listening on 127.0.0.1:8080...
+[Server] INFO: Vacation Model: ACCESS_QUEUE
+[Server] INFO: Max Aux List Length per Vacation: 100
+[Server] INFO: Max Access Requests per Vacation: 64
+[Server] INFO: Max Number of Vacations: 6
+[Server] INFO: Auxiliary List Update Rate: 2
+[Server] INFO: Policy Resolution: LINEAR
+[Server] INFO: Waiting for a connection...
+[Server] DEBUG: Main hello world! This works as well!
+[Server] INFO: 127.0.0.1:65029 has connected.
+[Server] DEBUG: Time elapsed: 3.0
+[Server] DEBUG: Number of access requests served: 193
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 1019 | Combined: = 1025
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 6.070767249999335
+[Server] DEBUG: Number of access requests served: 202
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 51
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 8.792942625004798
+[Server] DEBUG: Number of access requests served: 178
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 51
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 11.586368875025073
+[Server] DEBUG: Number of access requests served: 178
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 50
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] DEBUG: Time elapsed: 14.398861624998972
+[Server] DEBUG: Number of access requests served: 181
+[Server] INFO: Mining process starting... stay tuned!
+[Server] DEBUG: Auxiliary list after combination: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Original: 45 | Combined: = 51
+[Server] DEBUG: Combination Process Over!
+[Server] DEBUG: Refined number of rules = 45
+[Server] INFO: Handling clients must be stopped!
+[Server] INFO: Stopped access request resolution
+[Server] INFO: Connection closed on server side!
+
+[Server] INFO: Done accepting clients
+[Server] INFO: Stopped auxiliary list updates
+[Server] INFO: No. of access requests resolved by: 
+[Server] INFO: Policy: 78
+[Server] INFO: Auxiliary List: 0
+[Server] INFO: None: 854
+[Server] INFO: Total: 932
+[Server] INFO: Exiting...
+[Server] INFO: ----------------- Server started at 2024-10-14 03:07:09 -----------------
+[Server] INFO: Arguments: Namespace(al_update_rate=2, max_aux_list_len=100, max_access_requests=64, max_no_of_vacations=6, policy_resolution=1, vacation_model=1)
+[Server] INFO: Current directory: /Users/karthik/work/btp/not_btp/myfork/client-server-model/server
+[Server] DEBUG: user attribute-values: {'URQCB': ['ljeq', 'tto', 'anz', 'eivi', 'xlvd', 'ezsjc'], 'BYGLAPH': ['yaona', 'kiooy', 'gtitq', 'krgs', 'epln', 'pcfb'], 'QGR': ['pdas', 'xfc', 'bteg', 'fcfsk', 'ehpxe', 'bdfz'], 'TQDMXZ': ['cma', 'ivjsf', 'rloi', 'syl', 'xxlbd', 'kcj'], 'ZBHX': ['szr', 'uupvd', 'jfe', 'oql', 'ooqq', 'rae'], 'XBPJKYC': ['laslq', 'rxeq', 'dbijh', 'evq', 'ksz', 'uwl']}
+[Server] DEBUG: object attribute-values: {'HHXLPZT': ['hni', 'zte', 'knteo', 'lggb', 'kerf', 'cbj'], 'OQBD': ['ion', 'mkw', 'qihk', 'vrk', 'psns', 'kdz'], 'VZRTKI': ['rjl', 'ykqc', 'jzb', 'ilhoh', 'anqs', 'iaba'], 'USRGRJN': ['omfhj', 'jyma', 'zeb', 'kakn', 'guld', 'jpd'], 'YZSF': ['qnd', 'lefpb', 'opa', 'dtz', 'byu', 'narv'], 'CHLYK': ['tlcn', 'spxr', 'oekaj', 'ewhvz', 'vyx', 'drx']}
+[Server] DEBUG: Auxiliary List: deque([['sub_5', 'obj_38', 'read'], ['sub_44', 'obj_22', 'read'], ['sub_8', 'obj_28', 'read'], ['sub_44', 'obj_43', 'read'], ['sub_26', 'obj_35', 'read'], ['sub_10', 'obj_32', 'read'], ['sub_8', 'obj_27', 'read'], ['sub_1', 'obj_41', 'read'], ['sub_36', 'obj_31', 'read'], ['sub_4', 'obj_27', 'read']])
+[Server] DEBUG: Init process over !
+
+[Server] INFO: +++++++++++++++++++++++++++++++++++++++++++++ Server Side +++++++++++++++++++++++++++++++++++++++++++++
+[Server] INFO: [ -- LISTENING -- ] Server is listening on 127.0.0.1:8080...
+[Server] INFO: Vacation Model: ACCESS_QUEUE
+[Server] INFO: Max Aux List Length per Vacation: 100
+[Server] INFO: Max Access Requests per Vacation: 64
+[Server] INFO: Max Number of Vacations: 6
+[Server] INFO: Auxiliary List Update Rate: 2
+[Server] INFO: Policy Resolution: LINEAR
+[Server] INFO: Waiting for a connection...
+[Server] DEBUG: Main hello world! This works as well!
+[Server] INFO: 127.0.0.1:65041 has connected.
+[Server] INFO: No. of vacations: 1
+[Server] INFO: Keyboard interrupt caught
+[Server] INFO: Connection closed on server side!
+
+[Server] INFO: Closing the server...
+[Server] INFO: Done accepting clients
+[Server] INFO: Stopped access request resolution
+[Server] INFO: ------------- Server Closed ! -------------
+[Server] INFO: Exiting...

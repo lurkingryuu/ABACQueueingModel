@@ -52,6 +52,50 @@ def stats_parser(file_path):
     avg_no_of_jobs = sum(no_of_jobs) // len(no_of_jobs)
     return tot_avg_wait_time, tot_avg_res_time, avg_vac_duration, avg_no_of_jobs, vac_start_time, vac_durations
 
+def access_res_times_per_vacation(file_path):
+    with open(file_path, 'r') as file:
+        file_contents = file.read()
+
+    jobs_list = file_contents.split("\n\n")
+
+    vac_durations = []
+    vac_start_time = []
+    no_of_jobs = []
+    access_res_times: list[list[float]] = []
+    access_res_times_per_vac: list[float] = []
+    
+    for i in range(0, len(jobs_list)):
+        job_list = jobs_list[i]
+
+        if len(job_list) != 0:
+            jobs = job_list.split("\n")
+            flg = 0
+            for job in jobs:
+                if job.startswith("-----"):
+                    flg = 1
+                    continue
+                elif job.startswith("------"):
+                    flg = 0
+                    continue
+                elif flg == 1:
+                    if job.startswith("Start"):
+                        vac_start_time.append(float(job.split(": ")[1]))
+                    elif job.startswith("Duration"):
+                        vac_durations.append(float(job.split(": ")[1]))
+                    elif job.startswith("Jobs"):
+                        no_of_jobs.append(int(job.split(": ")[1]))
+                        access_res_times.append(access_res_times_per_vac.copy())
+                        access_res_times_per_vac = []
+                elif job.startswith("Job"):
+                    entities = job.split(" | ")
+                    times = [float(entities[i].split(" = ")[1]) for i in range(2)]
+                    access_res_times_per_vac.append(times[1])
+                else:
+                    if job.startswith("-----"):
+                        vac_durations.append(float(job.split(": ")[1]))
+    return access_res_times
+
+
 def display_stats(file_path):
     tot_avg_wait_time, tot_avg_res_time, avg_vac_duration, avg_no_of_jobs, vac_start_time, vac_durations = stats_parser(file_path)
     print(f"Average waiting time: {tot_avg_wait_time} sec")
